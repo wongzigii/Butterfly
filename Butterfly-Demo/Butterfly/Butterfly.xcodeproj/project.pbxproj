@@ -92,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				E0BA8DD81B42145B0086D67A /* Logo */,
+				E0BA8D631B42101A0086D67A /* Butterfly.h */,
 				E0BA8D7B1B4210BA0086D67A /* ButterflyBottomBar.swift */,
 				E0BA8D7C1B4210BA0086D67A /* ButterflyDrawView.swift */,
 				E0BA8D7D1B4210BA0086D67A /* ButterflyManager.swift */,
@@ -99,7 +100,6 @@
 				E0BA8D871B4211380086D67A /* ButterflyTopBar.swift */,
 				E0BA8D891B42115A0086D67A /* ButterflyViewController.swift */,
 				E0BA8D7F1B4210BA0086D67A /* UIWindow+ShakingBug.swift */,
-				E0BA8D631B42101A0086D67A /* Butterfly.h */,
 				E0BA8D611B42101A0086D67A /* Supporting Files */,
 			);
 			name = Butterfly;

@@ -32,14 +32,14 @@ import CoreGraphics
 //
 
 @objc protocol ButterflyDrawViewDelegate {
-    //
-    // Called when start drawing in ButterflyDrawView
-    //
+    ///
+    /// Called when start drawing in ButterflyDrawView
+    ///
     func drawViewDidStartDrawingInView(drawView: ButterflyDrawView?)
     
-    //
-    // Called when end drawing in ButterflyDrawView
-    //
+    ///
+    /// Called when end drawing in ButterflyDrawView
+    ///
     func drawViewDidEndDrawingInView(drawView: ButterflyDrawView?)
 }
 
@@ -56,7 +56,6 @@ class ButterflyDrawView : UIView {
     
     weak var delegate: ButterflyDrawViewDelegate?
     
-    ///
     var isTouchBegan: Bool?
     
     private var backgroundImageView: UIImageView?
@@ -113,8 +112,8 @@ class ButterflyDrawView : UIView {
     
     override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
         if let bool = isTouchBegan {
-            if delegate != nil {
-                delegate?.drawViewDidStartDrawingInView(self)
+            if let dele = delegate  {
+                dele.drawViewDidStartDrawingInView(self)
             }
             isTouchBegan = false
         }

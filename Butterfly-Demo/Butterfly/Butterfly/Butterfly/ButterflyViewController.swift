@@ -26,15 +26,21 @@
 
 import UIKit
 
-// MARK: - Protocol of `ButterflyViewController
+/// MARK: - Protocol of `ButterflyViewController
 
 @objc protocol ButterflyViewControllerDelegate {
     
-    func ButterflyViewControllerDidEndReporting(drawView: ButterflyDrawView?)
+    func ButterflyViewControllerDidPressedSendButton(drawView: ButterflyDrawView?)
 }
 
-// This is the viewController combined Butterfly modules.
-class ButterflyViewController: UIViewController, ButterflyDrawViewDelegate, UITextViewDelegate {
+/// This is the viewController combined Butterfly modules.
+public class ButterflyViewController: UIViewController, ButterflyDrawViewDelegate, UITextViewDelegate {
+    
+    /// The image reported by users that will upload to server.
+    public var imageWillUpload: UIImage?
+    
+    /// The text reported by users that will upload to server.
+    public var textWillUpload: String?
     
     var topBar: ButterflyTopBar?
    
@@ -61,7 +67,7 @@ class ButterflyViewController: UIViewController, ButterflyDrawViewDelegate, UITe
     
     var textViewIsShowing: Bool?
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         setup()
         self.view.backgroundColor = UIColor.clearColor()
@@ -97,27 +103,46 @@ class ButterflyViewController: UIViewController, ButterflyDrawViewDelegate, UITe
         view.addSubview(self.textView)
     }
 
-    func cancelButtonPressed(sender: UIButton?) {
+    public func cancelButtonPressed(sender: UIButton?) {
         drawView?.enable()
+        dismissViewControllerAnimated(false, completion: nil)
+    }
+    
+    /// Note: Always access or upload `imageWillUpload` and `textWillUpload` only after send button has been pressed, otherwise, these two optional properties may be nil.
+    /// After that, you can upload image and text manually and properly.
+    public func sendButtonPressed(sender: UIButton?) {
+        drawView?.enable()
+        delegate?.ButterflyViewControllerDidPressedSendButton(drawView)
+        imageWillUpload = ButterflyManager.sharedManager.takeAScreenshot()
+        textWillUpload = textView.text
+        
+        if let textViewIsShowing = textView.isShowing {
+            if textViewIsShowing == true {
+                textView.hide()
+            }
+        }
+        showAlertViewController()
+        println(self.imageWillUpload)
+        println(self.textWillUpload)
+    }
+    
+    func showAlertViewController() {
         self.dismissViewControllerAnimated(false, completion: nil)
+        let alert = UIAlertController(title: "Success", message: "Report Success", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
+        self.presentingViewController?.presentViewController(alert, animated: true, completion: nil)
     }
     
-    func sendButtonPressed(sender: UIButton?) {
-        drawView?.enable()
-        delegate?.ButterflyViewControllerDidEndReporting(drawView)
-        print("Send Button Pressed \n")
-    }
-    
-    func colorChangedButtonPressed(sender: UIButton?) {
+    internal func colorChangedButtonPressed(sender: UIButton?) {
         drawView?.lineColor = UIColor.yellowColor()
     }
     
-    func inputDescriptionButtonPressed(sender: UIButton?) {
+    internal func inputDescriptionButtonPressed(sender: UIButton?) {
         textView.show()
         drawView?.disable()
     }
     
-    func clearButtonPressed(sender: UIButton?) {
+    internal func clearButtonPressed(sender: UIButton?) {
         drawView?.clear()
     }
     
@@ -134,15 +159,18 @@ class ButterflyViewController: UIViewController, ButterflyDrawViewDelegate, UITe
         bottomBar?.hide()
     }
     
-// MARK: - UITextViewDelegate
-    
+/// MARK: - UITextViewDelegate
+///
 /// Placeholder trick
-    
-/// Changed if statements to compare tags rather than text. If the user deleted their text it was possible to also 
+///
+/// Changed if statements to compare tags rather than text. If the user deleted their text it was possible to also
 /// accidentally delete a portion of the place holder. This meant if the user re-entered the textView the following
 /// delegate method, `- textViewShouldBeginEditing` , it would not work as expected.
-
-    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+///
+/// http://stackoverflow.com/questions/1328638/placeholder-in-uitextview/7091503#7091503
+/// DO NOT OVERRIDE THESE METHODS BELOW EXCEPTED YOU NEED INDEED.
+///
+    public func textViewShouldBeginEditing(textView: UITextView) -> Bool {
         if textView.tag == 0 {
             textView.text = "";
             textView.textColor = UIColor.blackColor();
@@ -151,21 +179,19 @@ class ButterflyViewController: UIViewController, ButterflyDrawViewDelegate, UITe
         return true;
     }
     
-    func textViewDidEndEditing(textView: UITextView) {
+    public func textViewDidEndEditing(textView: UITextView) {
         if count(textView.text) == 0 {
             textView.text = "Please enter your feedback."
             textView.textColor = UIColor.lightGrayColor()
             textView.tag = 0
         }
-        if textView.isKindOfClass(ButterflyTextView) {
-            self.textView.hide()
-            self.drawView?.enable()
-        }
+        
+        self.textView.hide()
+        drawView?.enable()
+        textWillUpload = textView.text
     }
     
-    /// Dismiss keyboard if `return` button pressed.
-    
-    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+    public func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             textView.resignFirstResponder()
             return false
@@ -173,9 +199,9 @@ class ButterflyViewController: UIViewController, ButterflyDrawViewDelegate, UITe
         return true
     }
     
-// MARK: - deinit
+/// MARK: - deinit
     
-    deinit{
+     deinit{
         drawView?.delegate = nil
     }
 }
