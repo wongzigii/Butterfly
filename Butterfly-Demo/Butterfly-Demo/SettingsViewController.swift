@@ -9,6 +9,9 @@
 import UIKit
 import Butterfly
 
+let onLabelText = "Butterfly start listening motion."
+let offLabelText = "Butterfly end listening motion."
+
 class SettingsViewController: UITableViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
@@ -22,6 +25,7 @@ class SettingsViewController: UITableViewController, UITableViewDataSource {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("SettingsCell", forIndexPath: indexPath) as! SettingsCell
         cell.switcher.setOn(self.butterflyIsListening(), animated: false)
+        cell.label.text = self.butterflyIsListening() ? onLabelText : offLabelText
         return cell
     }
     
@@ -44,11 +48,10 @@ class SettingsCell: UITableViewCell {
         var delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if sender.on == true {
             ButterflyManager.sharedManager.startListeningShake()
-            self.label.text = "Butterfly start listening."
+            self.label.text = onLabelText
         }else {
             ButterflyManager.sharedManager.stopListeningShake()
-            self.label.text = "Butterfly stop listening."
+            self.label.text = offLabelText
         }
     }
-
 }
