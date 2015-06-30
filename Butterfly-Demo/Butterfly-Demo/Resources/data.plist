@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>bgimage</key>
+		<string>City of Manchester Stadium.jpg</string>
+		<key>title</key>
+		<string>City of Manchester Stadium</string>
+		<key>date</key>
+		<string>2015-06-27</string>
+		<key>match</key>
+		<string>West Bromwich Albion VS Manchester City</string>
+	</dict>
+	<dict>
+		<key>bgimage</key>
+		<string>Old Trafford Stadium.jpg</string>
+		<key>title</key>
+		<string>Old Trafford Stadium</string>
+		<key>date</key>
+		<string>2015-06-29</string>
+		<key>match</key>
+		<string>Manchester United VS Tottenham Hotspur</string>
+	</dict>
+	<dict>
+		<key>bgimage</key>
+		<string>Stamford Bridge Stadium.jpg</string>
+		<key>title</key>
+		<string>Stamford Bridge Stadium</string>
+		<key>date</key>
+		<string>2015-06-30</string>
+		<key>match</key>
+		<string>Chelsea VS Swansea City</string>
+	</dict>
+	<dict>
+		<key>bgimage</key>
+		<string>Anfield Stadium.jpg</string>
+		<key>title</key>
+		<string>Anfield Stadium</string>
+		<key>date</key>
+		<string>2015-07-2</string>
+		<key>match</key>
+		<string>Stoke City VS Liverpool</string>
+	</dict>
+	<dict>
+		<key>bgimage</key>
+		<string>Emirates Stadium.jpg</string>
+		<key>title</key>
+		<string>Emirates Stadium</string>
+		<key>date</key>
+		<string>2015-07-5</string>
+		<key>match</key>
+		<string>Arsenal VS West Ham United</string>
+	</dict>
+</array>
+</plist>

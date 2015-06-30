@@ -1,0 +1,510 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E0BA8D9A1B42133F0086D67A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BA8D991B42133F0086D67A /* AppDelegate.swift */; };
+		E0BA8D9C1B42133F0086D67A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BA8D9B1B42133F0086D67A /* ViewController.swift */; };
+		E0BA8DA11B42133F0086D67A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0BA8DA01B42133F0086D67A /* Images.xcassets */; };
+		E0BA8DA41B42133F0086D67A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0BA8DA21B42133F0086D67A /* LaunchScreen.xib */; };
+		E0BA8DB01B42133F0086D67A /* Butterfly_DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BA8DAF1B42133F0086D67A /* Butterfly_DemoTests.swift */; };
+		E0BA8DD11B4214330086D67A /* Anfield Stadium.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E0BA8DCC1B4214330086D67A /* Anfield Stadium.jpg */; };
+		E0BA8DD21B4214330086D67A /* City of Manchester Stadium.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E0BA8DCD1B4214330086D67A /* City of Manchester Stadium.jpg */; };
+		E0BA8DD31B4214330086D67A /* Emirates Stadium.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E0BA8DCE1B4214330086D67A /* Emirates Stadium.jpg */; };
+		E0BA8DD41B4214330086D67A /* Old Trafford Stadium.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E0BA8DCF1B4214330086D67A /* Old Trafford Stadium.jpg */; };
+		E0BA8DD51B4214330086D67A /* Stamford Bridge Stadium.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E0BA8DD01B4214330086D67A /* Stamford Bridge Stadium.jpg */; };
+		E0BA8DD71B4214430086D67A /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0BA8DD61B4214430086D67A /* data.plist */; };
+		E0BA8DE21B42154A0086D67A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0BA8DE11B42154A0086D67A /* Main.storyboard */; };
+		E0BA8DE41B4216140086D67A /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = E0BA8DE31B4216140086D67A /* location.png */; };
+		E0BA8DE61B4216840086D67A /* ios7-calendar-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = E0BA8DE51B4216840086D67A /* ios7-calendar-outline.png */; };
+		E0BA8DE81B4218510086D67A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BA8DE71B4218510086D67A /* SettingsViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E0BA8DAA1B42133F0086D67A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E0BA8D8C1B42133F0086D67A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E0BA8D931B42133F0086D67A;
+			remoteInfo = "Butterfly-Demo";
+		};
+		E0BA8DF41B42305F0086D67A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E0BA8DEF1B42305F0086D67A /* Butterfly.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E0BA8D5E1B42101A0086D67A;
+			remoteInfo = Butterfly;
+		};
+		E0BA8DF61B42305F0086D67A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E0BA8DEF1B42305F0086D67A /* Butterfly.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E0BA8D691B42101B0086D67A;
+			remoteInfo = ButterflyTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E0BA8D941B42133F0086D67A /* Butterfly-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Butterfly-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0BA8D981B42133F0086D67A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0BA8D991B42133F0086D67A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E0BA8D9B1B42133F0086D67A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E0BA8DA01B42133F0086D67A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E0BA8DA31B42133F0086D67A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		E0BA8DA91B42133F0086D67A /* Butterfly-DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Butterfly-DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0BA8DAE1B42133F0086D67A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0BA8DAF1B42133F0086D67A /* Butterfly_DemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Butterfly_DemoTests.swift; sourceTree = "<group>"; };
+		E0BA8DCC1B4214330086D67A /* Anfield Stadium.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Anfield Stadium.jpg"; sourceTree = "<group>"; };
+		E0BA8DCD1B4214330086D67A /* City of Manchester Stadium.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "City of Manchester Stadium.jpg"; sourceTree = "<group>"; };
+		E0BA8DCE1B4214330086D67A /* Emirates Stadium.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Emirates Stadium.jpg"; sourceTree = "<group>"; };
+		E0BA8DCF1B4214330086D67A /* Old Trafford Stadium.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Old Trafford Stadium.jpg"; sourceTree = "<group>"; };
+		E0BA8DD01B4214330086D67A /* Stamford Bridge Stadium.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Stamford Bridge Stadium.jpg"; sourceTree = "<group>"; };
+		E0BA8DD61B4214430086D67A /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
+		E0BA8DE11B42154A0086D67A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		E0BA8DE31B4216140086D67A /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
+		E0BA8DE51B4216840086D67A /* ios7-calendar-outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios7-calendar-outline.png"; sourceTree = "<group>"; };
+		E0BA8DE71B4218510086D67A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E0BA8DEF1B42305F0086D67A /* Butterfly.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Butterfly.xcodeproj; path = ../Butterfly/Butterfly.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E0BA8D911B42133F0086D67A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0BA8DA61B42133F0086D67A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E0BA8D8B1B42133F0086D67A = {
+			isa = PBXGroup;
+			children = (
+				E0BA8DEF1B42305F0086D67A /* Butterfly.xcodeproj */,
+				E0BA8D961B42133F0086D67A /* Butterfly-Demo */,
+				E0BA8DAC1B42133F0086D67A /* Butterfly-DemoTests */,
+				E0BA8D951B42133F0086D67A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E0BA8D951B42133F0086D67A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E0BA8D941B42133F0086D67A /* Butterfly-Demo.app */,
+				E0BA8DA91B42133F0086D67A /* Butterfly-DemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E0BA8D961B42133F0086D67A /* Butterfly-Demo */ = {
+			isa = PBXGroup;
+			children = (
+				E0BA8DCB1B4214330086D67A /* Resources */,
+				E0BA8D991B42133F0086D67A /* AppDelegate.swift */,
+				E0BA8D9B1B42133F0086D67A /* ViewController.swift */,
+				E0BA8DE71B4218510086D67A /* SettingsViewController.swift */,
+				E0BA8DE11B42154A0086D67A /* Main.storyboard */,
+				E0BA8DA01B42133F0086D67A /* Images.xcassets */,
+				E0BA8DA21B42133F0086D67A /* LaunchScreen.xib */,
+				E0BA8D971B42133F0086D67A /* Supporting Files */,
+			);
+			path = "Butterfly-Demo";
+			sourceTree = "<group>";
+		};
+		E0BA8D971B42133F0086D67A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E0BA8D981B42133F0086D67A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E0BA8DAC1B42133F0086D67A /* Butterfly-DemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				E0BA8DAF1B42133F0086D67A /* Butterfly_DemoTests.swift */,
+				E0BA8DAD1B42133F0086D67A /* Supporting Files */,
+			);
+			path = "Butterfly-DemoTests";
+			sourceTree = "<group>";
+		};
+		E0BA8DAD1B42133F0086D67A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E0BA8DAE1B42133F0086D67A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E0BA8DCB1B4214330086D67A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E0BA8DE51B4216840086D67A /* ios7-calendar-outline.png */,
+				E0BA8DE31B4216140086D67A /* location.png */,
+				E0BA8DD61B4214430086D67A /* data.plist */,
+				E0BA8DCC1B4214330086D67A /* Anfield Stadium.jpg */,
+				E0BA8DCD1B4214330086D67A /* City of Manchester Stadium.jpg */,
+				E0BA8DCE1B4214330086D67A /* Emirates Stadium.jpg */,
+				E0BA8DCF1B4214330086D67A /* Old Trafford Stadium.jpg */,
+				E0BA8DD01B4214330086D67A /* Stamford Bridge Stadium.jpg */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E0BA8DF01B42305F0086D67A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E0BA8DF51B42305F0086D67A /* Butterfly.framework */,
+				E0BA8DF71B42305F0086D67A /* ButterflyTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E0BA8D931B42133F0086D67A /* Butterfly-Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E0BA8DB31B42133F0086D67A /* Build configuration list for PBXNativeTarget "Butterfly-Demo" */;
+			buildPhases = (
+				E0BA8D901B42133F0086D67A /* Sources */,
+				E0BA8D911B42133F0086D67A /* Frameworks */,
+				E0BA8D921B42133F0086D67A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Butterfly-Demo";
+			productName = "Butterfly-Demo";
+			productReference = E0BA8D941B42133F0086D67A /* Butterfly-Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E0BA8DA81B42133F0086D67A /* Butterfly-DemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E0BA8DB61B42133F0086D67A /* Build configuration list for PBXNativeTarget "Butterfly-DemoTests" */;
+			buildPhases = (
+				E0BA8DA51B42133F0086D67A /* Sources */,
+				E0BA8DA61B42133F0086D67A /* Frameworks */,
+				E0BA8DA71B42133F0086D67A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E0BA8DAB1B42133F0086D67A /* PBXTargetDependency */,
+			);
+			name = "Butterfly-DemoTests";
+			productName = "Butterfly-DemoTests";
+			productReference = E0BA8DA91B42133F0086D67A /* Butterfly-DemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E0BA8D8C1B42133F0086D67A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = Wongzigii;
+				TargetAttributes = {
+					E0BA8D931B42133F0086D67A = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					E0BA8DA81B42133F0086D67A = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = E0BA8D931B42133F0086D67A;
+					};
+				};
+			};
+			buildConfigurationList = E0BA8D8F1B42133F0086D67A /* Build configuration list for PBXProject "Butterfly-Demo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E0BA8D8B1B42133F0086D67A;
+			productRefGroup = E0BA8D951B42133F0086D67A /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E0BA8DF01B42305F0086D67A /* Products */;
+					ProjectRef = E0BA8DEF1B42305F0086D67A /* Butterfly.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				E0BA8D931B42133F0086D67A /* Butterfly-Demo */,
+				E0BA8DA81B42133F0086D67A /* Butterfly-DemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E0BA8DF51B42305F0086D67A /* Butterfly.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Butterfly.framework;
+			remoteRef = E0BA8DF41B42305F0086D67A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E0BA8DF71B42305F0086D67A /* ButterflyTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ButterflyTests.xctest;
+			remoteRef = E0BA8DF61B42305F0086D67A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E0BA8D921B42133F0086D67A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0BA8DD21B4214330086D67A /* City of Manchester Stadium.jpg in Resources */,
+				E0BA8DD11B4214330086D67A /* Anfield Stadium.jpg in Resources */,
+				E0BA8DE41B4216140086D67A /* location.png in Resources */,
+				E0BA8DD31B4214330086D67A /* Emirates Stadium.jpg in Resources */,
+				E0BA8DD41B4214330086D67A /* Old Trafford Stadium.jpg in Resources */,
+				E0BA8DA41B42133F0086D67A /* LaunchScreen.xib in Resources */,
+				E0BA8DD71B4214430086D67A /* data.plist in Resources */,
+				E0BA8DE21B42154A0086D67A /* Main.storyboard in Resources */,
+				E0BA8DE61B4216840086D67A /* ios7-calendar-outline.png in Resources */,
+				E0BA8DD51B4214330086D67A /* Stamford Bridge Stadium.jpg in Resources */,
+				E0BA8DA11B42133F0086D67A /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0BA8DA71B42133F0086D67A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E0BA8D901B42133F0086D67A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0BA8DE81B4218510086D67A /* SettingsViewController.swift in Sources */,
+				E0BA8D9C1B42133F0086D67A /* ViewController.swift in Sources */,
+				E0BA8D9A1B42133F0086D67A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0BA8DA51B42133F0086D67A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0BA8DB01B42133F0086D67A /* Butterfly_DemoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E0BA8DAB1B42133F0086D67A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E0BA8D931B42133F0086D67A /* Butterfly-Demo */;
+			targetProxy = E0BA8DAA1B42133F0086D67A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E0BA8DA21B42133F0086D67A /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E0BA8DA31B42133F0086D67A /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E0BA8DB11B42133F0086D67A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E0BA8DB21B42133F0086D67A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E0BA8DB41B42133F0086D67A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Butterfly-Demo/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E0BA8DB51B42133F0086D67A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Butterfly-Demo/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E0BA8DB71B42133F0086D67A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Butterfly-DemoTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Butterfly-Demo.app/Butterfly-Demo";
+			};
+			name = Debug;
+		};
+		E0BA8DB81B42133F0086D67A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Butterfly-DemoTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Butterfly-Demo.app/Butterfly-Demo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E0BA8D8F1B42133F0086D67A /* Build configuration list for PBXProject "Butterfly-Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0BA8DB11B42133F0086D67A /* Debug */,
+				E0BA8DB21B42133F0086D67A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E0BA8DB31B42133F0086D67A /* Build configuration list for PBXNativeTarget "Butterfly-Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0BA8DB41B42133F0086D67A /* Debug */,
+				E0BA8DB51B42133F0086D67A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E0BA8DB61B42133F0086D67A /* Build configuration list for PBXNativeTarget "Butterfly-DemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0BA8DB71B42133F0086D67A /* Debug */,
+				E0BA8DB81B42133F0086D67A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E0BA8D8C1B42133F0086D67A /* Project object */;
+}
