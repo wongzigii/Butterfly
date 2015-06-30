@@ -15,8 +15,8 @@ Pod::Spec.new do |s|
   s.author       = { "Wongzigii" => "wongzigii@outlook.com" }
   s.platform     = :ios, "7.0"
   s.source       = { :git => "https://github.com/wongzigii/Butterfly.git", :tag => "v#{s.version}" }
-  s.source_files  = "Butterfly/Butterfly/*.swift"
-  s.ios.resource_bundle = { 'Butterfly' => 'Butterfly/Butterfly/Logo/*.png' }
+  s.source_files  = "Butterfly/*.swift"
+  s.ios.resource_bundle = { 'Butterfly' => 'Butterfly/Logo/*.png' }
   s.requires_arc = true
  end
 
