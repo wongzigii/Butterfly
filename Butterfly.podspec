@@ -7,16 +7,13 @@
 #
 
 Pod::Spec.new do |s|
-  s.name         = "Butterfly"
-  s.version      = "0.1.0"
-  s.summary      = "Integrate feedback module elegantly."
-  s.homepage     = "http://www.wongzigii.com"
-  s.license      = { :type => "MIT", :file => "LICENSE" }
-  s.author       = { "Wongzigii" => "wongzigii@outlook.com" }
-  s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/wongzigii/Butterfly.git", :tag => "v#{s.version}" }
-  s.source_files  = "Butterfly/*.swift"
-  s.ios.resource_bundle = { 'Butterfly' => 'Butterfly/Logo/*.png' }
-  s.requires_arc = true
- end
-
+  s.name = 'Butterfly'
+  s.version = '0.1.0'
+  s.license = 'MIT'
+  s.summary = 'Integrate feedback module elegantly.'
+  s.authors = { 'Wongzigii' => 'https://github.com/wongzigii' }
+  s.homepage = 'https://github.com/wongzigii/Butterfly'
+  s.source = { :git => 'https://github.com/wongzigii/Butterfly.git', :tag => "v#{s.version}" }
+  s.ios.deployment_target = '8.0'
+  s.source_files = 'Butterfly/*.swift'
+end
