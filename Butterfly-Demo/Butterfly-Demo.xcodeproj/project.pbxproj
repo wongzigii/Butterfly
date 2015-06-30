@@ -25,6 +25,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		E089D9121B42774F00761985 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E089D90D1B42774E00761985 /* Butterfly.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E0BA8D5E1B42101A0086D67A;
+			remoteInfo = Butterfly;
+		};
+		E089D9141B42774F00761985 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E089D90D1B42774E00761985 /* Butterfly.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E0BA8D691B42101B0086D67A;
+			remoteInfo = ButterflyTests;
+		};
 		E0BA8DAA1B42133F0086D67A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E0BA8D8C1B42133F0086D67A /* Project object */;
@@ -32,23 +46,10 @@
 			remoteGlobalIDString = E0BA8D931B42133F0086D67A;
 			remoteInfo = "Butterfly-Demo";
 		};
-		E0BA8DF41B42305F0086D67A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E0BA8DEF1B42305F0086D67A /* Butterfly.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E0BA8D5E1B42101A0086D67A;
-			remoteInfo = Butterfly;
-		};
-		E0BA8DF61B42305F0086D67A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E0BA8DEF1B42305F0086D67A /* Butterfly.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E0BA8D691B42101B0086D67A;
-			remoteInfo = ButterflyTests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E089D90D1B42774E00761985 /* Butterfly.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Butterfly.xcodeproj; path = Butterfly/Butterfly.xcodeproj; sourceTree = "<group>"; };
 		E0BA8D941B42133F0086D67A /* Butterfly-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Butterfly-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0BA8D981B42133F0086D67A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0BA8D991B42133F0086D67A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,7 +69,6 @@
 		E0BA8DE31B4216140086D67A /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
 		E0BA8DE51B4216840086D67A /* ios7-calendar-outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios7-calendar-outline.png"; sourceTree = "<group>"; };
 		E0BA8DE71B4218510086D67A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		E0BA8DEF1B42305F0086D67A /* Butterfly.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Butterfly.xcodeproj; path = ../Butterfly/Butterfly.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,10 +89,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E089D90E1B42774E00761985 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E089D9131B42774F00761985 /* Butterfly.framework */,
+				E089D9151B42774F00761985 /* ButterflyTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		E0BA8D8B1B42133F0086D67A = {
 			isa = PBXGroup;
 			children = (
-				E0BA8DEF1B42305F0086D67A /* Butterfly.xcodeproj */,
+				E089D90D1B42774E00761985 /* Butterfly.xcodeproj */,
 				E0BA8D961B42133F0086D67A /* Butterfly-Demo */,
 				E0BA8DAC1B42133F0086D67A /* Butterfly-DemoTests */,
 				E0BA8D951B42133F0086D67A /* Products */,
@@ -161,15 +170,6 @@
 				E0BA8DD01B4214330086D67A /* Stamford Bridge Stadium.jpg */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		E0BA8DF01B42305F0086D67A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E0BA8DF51B42305F0086D67A /* Butterfly.framework */,
-				E0BA8DF71B42305F0086D67A /* ButterflyTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,8 +241,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = E0BA8DF01B42305F0086D67A /* Products */;
-					ProjectRef = E0BA8DEF1B42305F0086D67A /* Butterfly.xcodeproj */;
+					ProductGroup = E089D90E1B42774E00761985 /* Products */;
+					ProjectRef = E089D90D1B42774E00761985 /* Butterfly.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -254,18 +254,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		E0BA8DF51B42305F0086D67A /* Butterfly.framework */ = {
+		E089D9131B42774F00761985 /* Butterfly.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Butterfly.framework;
-			remoteRef = E0BA8DF41B42305F0086D67A /* PBXContainerItemProxy */;
+			remoteRef = E089D9121B42774F00761985 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		E0BA8DF71B42305F0086D67A /* ButterflyTests.xctest */ = {
+		E089D9151B42774F00761985 /* ButterflyTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = ButterflyTests.xctest;
-			remoteRef = E0BA8DF61B42305F0086D67A /* PBXContainerItemProxy */;
+			remoteRef = E089D9141B42774F00761985 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
