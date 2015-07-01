@@ -32,11 +32,14 @@ private let textViewHeight = UIScreen.mainScreen().bounds.size.height / 5
 
 internal class ButterflyTextView : UITextView, UITextViewDelegate {
     
+    var isShowing: Bool!
+    
     init() {
         let frame = CGRectMake(textViewWidthMargin, -textViewHeight, UIScreen.mainScreen().bounds.size.width - 2*textViewWidthMargin, textViewHeight)
         super.init(frame: frame, textContainer: nil)
         layer.cornerRadius = textViewCornerRadius
         clipsToBounds = true
+        isShowing = false
     }
     
     required init(coder aDecode : NSCoder) {
@@ -44,28 +47,34 @@ internal class ButterflyTextView : UITextView, UITextViewDelegate {
     }
     
     func show() {
-        UIView.animateWithDuration(0.5,
-            delay: 0,
-            usingSpringWithDamping: 0.5,
-            initialSpringVelocity: 0.7,
-            options: UIViewAnimationOptions.allZeros,
-            animations: { () -> Void in
-                self.frame = CGRectMake(self.frame.origin.x, -self.frame.origin.y, self.frame.size.width, self.frame.size.height)
-        }) { (Bool) -> Void in
-            self.becomeFirstResponder()
+        if isShowing == false {
+            self.isShowing = true
+            UIView.animateWithDuration(0.5,
+                delay: 0,
+                usingSpringWithDamping: 0.5,
+                initialSpringVelocity: 0.7,
+                options: UIViewAnimationOptions.allZeros,
+                animations: { () -> Void in
+                    self.frame = CGRectMake(self.frame.origin.x, -self.frame.origin.y, self.frame.size.width, self.frame.size.height)
+                }) { (Bool) -> Void in
+                    self.becomeFirstResponder()
+            }
         }
     }
     
     func hide() {
-        self.resignFirstResponder()
-        UIView.animateWithDuration(0.5,
-            delay: 0,
-            usingSpringWithDamping: 0.5,
-            initialSpringVelocity: 0.7,
-            options: UIViewAnimationOptions.allZeros,
-            animations: { () -> Void in
-                self.frame = CGRectMake(self.frame.origin.x, -self.frame.origin.y, self.frame.size.width, self.frame.size.height)
-            }) { (Bool) -> Void in
+        if isShowing == true {
+            self.isShowing = false
+            UIView.animateWithDuration(0.5,
+                delay: 0,
+                usingSpringWithDamping: 0.5,
+                initialSpringVelocity: 0.7,
+                options: UIViewAnimationOptions.allZeros,
+                animations: { () -> Void in
+                    self.frame = CGRectMake(self.frame.origin.x, -self.frame.origin.y, self.frame.size.width, self.frame.size.height)
+                }) { (Bool) -> Void in
+                    self.resignFirstResponder()
+            }
         }
     }
 }

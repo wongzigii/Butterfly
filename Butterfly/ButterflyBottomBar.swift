@@ -55,9 +55,19 @@ class ButterflyBottomBar: UIView {
         
         let centerY: CGFloat = self.frame.size.height / 2 - bottomBarButtonSize / 2
         
-        let colorChangeButtonImg = UIImage(named: "analytics.png", inBundle: NSBundle(forClass: ButterflyBottomBar.self), compatibleWithTraitCollection: nil)
-        let descriptionButtonImg = UIImage(named: "email-outline.png", inBundle: NSBundle(forClass: ButterflyBottomBar.self), compatibleWithTraitCollection: nil)
+        ///3.
+        let colorChangeButtonImg = UIImage(named: "analytics.png")
+        //let colorChangeButtonImg = UIImage(named: "analytics.png", inBundle: NSBundle(forClass: ButterflyBottomBar.self), compatibleWithTraitCollection: nil)
+        //let descriptionButtonImg = UIImage(named: "email-outline.png", inBundle: NSBundle(forClass: ButterflyBottomBar.self), compatibleWithTraitCollection: nil)
+        
+        ////2.
         let clearButtonImg = UIImage(named: "trash.png", inBundle: NSBundle(forClass: ButterflyBottomBar.self), compatibleWithTraitCollection: nil)
+        
+        ////1.
+        let bundlePath = NSString(format: "%@/Frameworks/Butterfly.framework", NSBundle.mainBundle().bundlePath)
+        //let string = NSString(format: "%@/Butterfly.framework/Logo/email-outline.png", NSBundle.mainBundle().bundlePath)
+        let imgPath = NSString(format: "%@/email-outline.png", bundlePath)
+        let image = UIImage(contentsOfFile: imgPath as String)
         
         colorChangedButton = UIButton()
         colorChangedButton?.frame = CGRectMake(ButtonMarginWidth, centerY, bottomBarButtonSize, bottomBarButtonSize)
@@ -66,7 +76,7 @@ class ButterflyBottomBar: UIView {
         
         descriptionButton = UIButton()
         descriptionButton?.frame = CGRectMake(self.center.x - bottomBarButtonSize / 2, centerY, bottomBarButtonSize, bottomBarButtonSize)
-        descriptionButton?.setImage(descriptionButtonImg, forState: UIControlState.Normal)
+        descriptionButton?.setImage(image, forState: UIControlState.Normal)
         self.addSubview(descriptionButton!)
         
         clearPathButton = UIButton()
