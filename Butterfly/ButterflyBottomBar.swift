@@ -64,8 +64,10 @@ class ButterflyBottomBar: UIView {
         let clearButtonImg = UIImage(named: "trash.png", inBundle: NSBundle(forClass: ButterflyBottomBar.self), compatibleWithTraitCollection: nil)
         
         ////1.
-        let string = NSString(format: "%@/Butterfly.framework/Logo/email-outline.png", NSBundle.mainBundle().bundlePath)
-        let image = UIImage(contentsOfFile: string as String)
+        let bundlePath = NSString(format: "%@/Frameworks/Butterfly.framework", NSBundle.mainBundle().bundlePath)
+        //let string = NSString(format: "%@/Butterfly.framework/Logo/email-outline.png", NSBundle.mainBundle().bundlePath)
+        let imgPath = NSString(format: "%@/email-outline.png", bundlePath)
+        let image = UIImage(contentsOfFile: imgPath as String)
         
         colorChangedButton = UIButton()
         colorChangedButton?.frame = CGRectMake(ButtonMarginWidth, centerY, bottomBarButtonSize, bottomBarButtonSize)
