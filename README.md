@@ -1,5 +1,10 @@
 # Butterfly
 
+![language](https://img.shields.io/badge/Language-%20Swift%20-orange.svg)
+![CocoaPods Version](https://img.shields.io/cocoapods/v/Butterfly.svg?style=flat)
+![MIT License](https://img.shields.io/github/license/mashape/apistatus.svg)
+![Platform](https://img.shields.io/badge/platform-%20iOS%20-lightgrey.svg)
+
 Butterfly is a lightweight library for integrating bug-report and feedback features with shake-motion event elegantly. 
 
 Just need two lines of code.
@@ -48,10 +53,11 @@ Butterfly provides an elegant way to present users' feedback as easy as possible
 import Butterfly
 ````
 
-Then put this into `didFinishLaunchingWithOptions` method in `AppDelegate` , 
-
 ````swift
-ButterflyManager.sharedManager.startListeningShake()
+func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        ButterflyManager.sharedManager.startListeningShake()
+        return true
+    }
 ````
 
 ## Contact
