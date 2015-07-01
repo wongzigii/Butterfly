@@ -36,7 +36,7 @@ Butterfly provides an elegant way to present users' feedback as easy as possible
     platform :ios, '8.0'
     use_frameworks!
 
-    pod 'Butterfly', '~> 0.2.0'
+    pod 'Butterfly', '~> 0.3.0'
 
 ###  Manually
     
