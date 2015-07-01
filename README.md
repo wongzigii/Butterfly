@@ -5,10 +5,11 @@
 ![MIT License](https://img.shields.io/github/license/mashape/apistatus.svg)
 ![Platform](https://img.shields.io/badge/platform-%20iOS%20-lightgrey.svg)
 
-Butterfly is a lightweight library for integrating bug-report and feedback features with shake-motion event elegantly. 
+Butterfly is a **lightweight** library for integrating bug-report and feedback features with shake-motion event elegantly. 
 
 Just need two lines of code.
 
+This project is inspired by Zhihu v3.0 originally.
 ## Goals of this project
 
 One of the main issues accross the iOS development is the feedback of new features and bug report.
