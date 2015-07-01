@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name = 'Butterfly'
-  s.version = '0.2.0'
+  s.version = '0.2.1'
   s.license = 'MIT'
   s.summary = 'Integrate feedback module elegantly.'
   s.authors = { 'Wongzigii' => 'https://github.com/wongzigii' }
