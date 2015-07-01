@@ -30,26 +30,36 @@ public let ButterflyDidShakingNotification = "com.wongzigii.Butterfly.ShakingNot
 
 private let instance = ButterflyManager()
 
-//
-//  Main manager class of Butterfly
-//
+
+///  Main manager class of Butterfly
+
 public class ButterflyManager: NSObject, ButterflyViewControllerDelegate {
+  
+    public var imageWillUpload: UIImage? {
+        get{
+            return self.butterflyViewController?.imageWillUpload
+        }
+    }
+    
+    public var textWillUpload: String? {
+        get{
+            return self.butterflyViewController?.textWillUpload
+        }
+    }
     
     /// Manager is listening shake event or not.
     public var isListeningShake: Bool?
     
-    // Shared manager used by the extension across Butterfly.
+    /// Shared manager used by the extension across Butterfly.
     public class var sharedManager: ButterflyManager {
         return instance
     }
     
-    /// ViewController used by this manager
+    /// ViewController instance used by this manager.
     var butterflyViewController: ButterflyViewController?
     
-    ///
-    // Register and start listening shake event.
-    // Register this method in AppDelegate will listen all motions during the whole application's life cycle.
-    //
+    /// Register and start listening shake event.
+    /// Register this method in AppDelegate will listen all motions during the whole application's life cycle.
     public func startListeningShake() {
         NSNotificationCenter.defaultCenter().addObserver(
             self,
@@ -59,9 +69,9 @@ public class ButterflyManager: NSObject, ButterflyViewControllerDelegate {
         isListeningShake = true
     }
     
-    //
-    // Unregister and stop listening shake event.
-    //
+    
+    /// Unregister and stop listening shake event.
+    /// Optional: you can just listen the specific one (viewController) you want.
     public func stopListeningShake() {
         NSNotificationCenter.defaultCenter().removeObserver(
             self,
@@ -69,11 +79,10 @@ public class ButterflyManager: NSObject, ButterflyViewControllerDelegate {
             object: nil)
         isListeningShake = false
     }
-
-    // ButterflyViewController delegate method. Will be invoked when send button pressed. You may want to implement this
-    // method to handle the image.
-    //
-    func ButterflyViewControllerDidEndReporting(drawView: ButterflyDrawView?) {
+    
+    /// ButterflyViewController delegate method. Will be invoked when send button pressed. You may want to implement this method to handle the image.
+    ///
+    func ButterflyViewControllerDidPressedSendButton(drawView: ButterflyDrawView?) {
         /// Custom this method.
         print("ButterflyViewController 's delegate method [-ButterflyViewControllerDidEndReporting] invoked\n")
     }
@@ -112,7 +121,7 @@ public class ButterflyManager: NSObject, ButterflyViewControllerDelegate {
     //
     // http://stackoverflow.com/questions/7964153/ios-whats-the-fastest-most-performant-way-to-make-a-screenshot-programaticall/8017292#8017292
     
-    private func takeAScreenshot() -> UIImage? {
+    internal func takeAScreenshot() -> UIImage? {
         
         let orientation = UIApplication.sharedApplication().statusBarOrientation
         let imageSize: CGSize = UIScreen.mainScreen().bounds.size
