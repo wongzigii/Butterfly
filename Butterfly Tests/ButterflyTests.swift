@@ -1,15 +1,15 @@
 //
-//  ButterflyTests.swift
-//  ButterflyTests
+//  Butterfly_Tests.swift
+//  Butterfly Tests
 //
-//  Created by Wongzigii on 6/30/15.
+//  Created by Wongzigii on 7/1/15.
 //  Copyright (c) 2015 Wongzigii. All rights reserved.
 //
 
 import UIKit
 import XCTest
 
-class ButterflyTests: XCTestCase {
+class Butterfly_Tests: XCTestCase {
     
     override func setUp() {
         super.setUp()

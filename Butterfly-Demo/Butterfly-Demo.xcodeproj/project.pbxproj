@@ -25,20 +25,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		E089D9121B42774F00761985 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E089D90D1B42774E00761985 /* Butterfly.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E0BA8D5E1B42101A0086D67A;
-			remoteInfo = Butterfly;
-		};
-		E089D9141B42774F00761985 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E089D90D1B42774E00761985 /* Butterfly.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E0BA8D691B42101B0086D67A;
-			remoteInfo = ButterflyTests;
-		};
 		E0BA8DAA1B42133F0086D67A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E0BA8D8C1B42133F0086D67A /* Project object */;
@@ -49,7 +35,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E089D90D1B42774E00761985 /* Butterfly.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Butterfly.xcodeproj; path = Butterfly/Butterfly.xcodeproj; sourceTree = "<group>"; };
 		E0BA8D941B42133F0086D67A /* Butterfly-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Butterfly-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0BA8D981B42133F0086D67A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0BA8D991B42133F0086D67A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,19 +74,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E089D90E1B42774E00761985 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E089D9131B42774F00761985 /* Butterfly.framework */,
-				E089D9151B42774F00761985 /* ButterflyTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		E0BA8D8B1B42133F0086D67A = {
 			isa = PBXGroup;
 			children = (
-				E089D90D1B42774E00761985 /* Butterfly.xcodeproj */,
 				E0BA8D961B42133F0086D67A /* Butterfly-Demo */,
 				E0BA8DAC1B42133F0086D67A /* Butterfly-DemoTests */,
 				E0BA8D951B42133F0086D67A /* Products */,
@@ -239,12 +214,6 @@
 			mainGroup = E0BA8D8B1B42133F0086D67A;
 			productRefGroup = E0BA8D951B42133F0086D67A /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = E089D90E1B42774E00761985 /* Products */;
-					ProjectRef = E089D90D1B42774E00761985 /* Butterfly.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				E0BA8D931B42133F0086D67A /* Butterfly-Demo */,
@@ -252,23 +221,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		E089D9131B42774F00761985 /* Butterfly.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Butterfly.framework;
-			remoteRef = E089D9121B42774F00761985 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E089D9151B42774F00761985 /* ButterflyTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ButterflyTests.xctest;
-			remoteRef = E089D9141B42774F00761985 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E0BA8D921B42133F0086D67A /* Resources */ = {

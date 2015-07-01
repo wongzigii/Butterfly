@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E089D9811B43814400761985 /* ButterflyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E089D9801B43814400761985 /* ButterflyTests.swift */; };
+		E089D9821B43814400761985 /* Butterfly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0BA8D5E1B42101A0086D67A /* Butterfly.framework */; };
 		E0BA8D641B42101A0086D67A /* Butterfly.h in Headers */ = {isa = PBXBuildFile; fileRef = E0BA8D631B42101A0086D67A /* Butterfly.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E0BA8D6A1B42101B0086D67A /* Butterfly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0BA8D5E1B42101A0086D67A /* Butterfly.framework */; };
-		E0BA8D711B42101B0086D67A /* ButterflyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BA8D701B42101B0086D67A /* ButterflyTests.swift */; };
 		E0BA8D811B4210BA0086D67A /* ButterflyBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BA8D7B1B4210BA0086D67A /* ButterflyBottomBar.swift */; };
 		E0BA8D821B4210BA0086D67A /* ButterflyDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BA8D7C1B4210BA0086D67A /* ButterflyDrawView.swift */; };
 		E0BA8D831B4210BA0086D67A /* ButterflyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BA8D7D1B4210BA0086D67A /* ButterflyManager.swift */; };
@@ -23,7 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		E0BA8D6B1B42101B0086D67A /* PBXContainerItemProxy */ = {
+		E089D9831B43814400761985 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E0BA8D551B42101A0086D67A /* Project object */;
 			proxyType = 1;
@@ -33,12 +33,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E089D97C1B43814300761985 /* Butterfly Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Butterfly Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E089D97F1B43814400761985 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E089D9801B43814400761985 /* ButterflyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButterflyTests.swift; sourceTree = "<group>"; };
 		E0BA8D5E1B42101A0086D67A /* Butterfly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Butterfly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0BA8D621B42101A0086D67A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0BA8D631B42101A0086D67A /* Butterfly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Butterfly.h; sourceTree = "<group>"; };
-		E0BA8D691B42101B0086D67A /* ButterflyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ButterflyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E0BA8D6F1B42101B0086D67A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E0BA8D701B42101B0086D67A /* ButterflyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButterflyTests.swift; sourceTree = "<group>"; };
 		E0BA8D7B1B4210BA0086D67A /* ButterflyBottomBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButterflyBottomBar.swift; sourceTree = "<group>"; };
 		E0BA8D7C1B4210BA0086D67A /* ButterflyDrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButterflyDrawView.swift; sourceTree = "<group>"; };
 		E0BA8D7D1B4210BA0086D67A /* ButterflyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButterflyManager.swift; sourceTree = "<group>"; };
@@ -52,6 +52,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E089D9791B43814300761985 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E089D9821B43814400761985 /* Butterfly.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E0BA8D5A1B42101A0086D67A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -59,22 +67,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E0BA8D661B42101B0086D67A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E0BA8D6A1B42101B0086D67A /* Butterfly.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E089D97D1B43814300761985 /* ButterflyTests */ = {
+			isa = PBXGroup;
+			children = (
+				E089D9801B43814400761985 /* ButterflyTests.swift */,
+				E089D97E1B43814400761985 /* Supporting Files */,
+			);
+			name = ButterflyTests;
+			path = "Butterfly Tests";
+			sourceTree = "<group>";
+		};
+		E089D97E1B43814400761985 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E089D97F1B43814400761985 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		E0BA8D541B42101A0086D67A = {
 			isa = PBXGroup;
 			children = (
 				E0BA8D601B42101A0086D67A /* Butterfly */,
-				E0BA8D6D1B42101B0086D67A /* ButterflyTests */,
+				E089D97D1B43814300761985 /* ButterflyTests */,
 				E0BA8D5F1B42101A0086D67A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -83,7 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				E0BA8D5E1B42101A0086D67A /* Butterfly.framework */,
-				E0BA8D691B42101B0086D67A /* ButterflyTests.xctest */,
+				E089D97C1B43814300761985 /* Butterfly Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,31 +120,13 @@
 				E0BA8D7F1B4210BA0086D67A /* UIWindow+ShakingBug.swift */,
 				E0BA8D611B42101A0086D67A /* Supporting Files */,
 			);
-			name = Butterfly;
-			path = Butterfly/Butterfly;
+			path = Butterfly;
 			sourceTree = "<group>";
 		};
 		E0BA8D611B42101A0086D67A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				E0BA8D621B42101A0086D67A /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		E0BA8D6D1B42101B0086D67A /* ButterflyTests */ = {
-			isa = PBXGroup;
-			children = (
-				E0BA8D701B42101B0086D67A /* ButterflyTests.swift */,
-				E0BA8D6E1B42101B0086D67A /* Supporting Files */,
-			);
-			path = ButterflyTests;
-			sourceTree = "<group>";
-		};
-		E0BA8D6E1B42101B0086D67A /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				E0BA8D6F1B42101B0086D67A /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -155,6 +155,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		E089D97B1B43814300761985 /* Butterfly Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E089D9871B43814400761985 /* Build configuration list for PBXNativeTarget "Butterfly Tests" */;
+			buildPhases = (
+				E089D9781B43814300761985 /* Sources */,
+				E089D9791B43814300761985 /* Frameworks */,
+				E089D97A1B43814300761985 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E089D9841B43814400761985 /* PBXTargetDependency */,
+			);
+			name = "Butterfly Tests";
+			productName = "Butterfly Tests";
+			productReference = E089D97C1B43814300761985 /* Butterfly Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		E0BA8D5D1B42101A0086D67A /* Butterfly */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E0BA8D741B42101B0086D67A /* Build configuration list for PBXNativeTarget "Butterfly" */;
@@ -173,24 +191,6 @@
 			productReference = E0BA8D5E1B42101A0086D67A /* Butterfly.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		E0BA8D681B42101B0086D67A /* ButterflyTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E0BA8D771B42101B0086D67A /* Build configuration list for PBXNativeTarget "ButterflyTests" */;
-			buildPhases = (
-				E0BA8D651B42101B0086D67A /* Sources */,
-				E0BA8D661B42101B0086D67A /* Frameworks */,
-				E0BA8D671B42101B0086D67A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E0BA8D6C1B42101B0086D67A /* PBXTargetDependency */,
-			);
-			name = ButterflyTests;
-			productName = ButterflyTests;
-			productReference = E0BA8D691B42101B0086D67A /* ButterflyTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -200,10 +200,10 @@
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Wongzigii;
 				TargetAttributes = {
-					E0BA8D5D1B42101A0086D67A = {
+					E089D97B1B43814300761985 = {
 						CreatedOnToolsVersion = 6.3.1;
 					};
-					E0BA8D681B42101B0086D67A = {
+					E0BA8D5D1B42101A0086D67A = {
 						CreatedOnToolsVersion = 6.3.1;
 					};
 				};
@@ -221,12 +221,19 @@
 			projectRoot = "";
 			targets = (
 				E0BA8D5D1B42101A0086D67A /* Butterfly */,
-				E0BA8D681B42101B0086D67A /* ButterflyTests */,
+				E089D97B1B43814300761985 /* Butterfly Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E089D97A1B43814300761985 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E0BA8D5C1B42101A0086D67A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -237,16 +244,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E0BA8D671B42101B0086D67A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E089D9781B43814300761985 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E089D9811B43814400761985 /* ButterflyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E0BA8D591B42101A0086D67A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -261,25 +269,47 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E0BA8D651B42101B0086D67A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E0BA8D711B42101B0086D67A /* ButterflyTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		E0BA8D6C1B42101B0086D67A /* PBXTargetDependency */ = {
+		E089D9841B43814400761985 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E0BA8D5D1B42101A0086D67A /* Butterfly */;
-			targetProxy = E0BA8D6B1B42101B0086D67A /* PBXContainerItemProxy */;
+			targetProxy = E089D9831B43814400761985 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		E089D9851B43814400761985 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Butterfly Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E089D9861B43814400761985 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Butterfly Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		E0BA8D721B42101B0086D67A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -402,39 +432,17 @@
 			};
 			name = Release;
 		};
-		E0BA8D781B42101B0086D67A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ButterflyTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		E0BA8D791B42101B0086D67A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = ButterflyTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E089D9871B43814400761985 /* Build configuration list for PBXNativeTarget "Butterfly Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E089D9851B43814400761985 /* Debug */,
+				E089D9861B43814400761985 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		E0BA8D581B42101A0086D67A /* Build configuration list for PBXProject "Butterfly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -449,15 +457,6 @@
 			buildConfigurations = (
 				E0BA8D751B42101B0086D67A /* Debug */,
 				E0BA8D761B42101B0086D67A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E0BA8D771B42101B0086D67A /* Build configuration list for PBXNativeTarget "ButterflyTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E0BA8D781B42101B0086D67A /* Debug */,
-				E0BA8D791B42101B0086D67A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
