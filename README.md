@@ -55,9 +55,9 @@ import Butterfly
 
 ````swift
 func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        ButterflyManager.sharedManager.startListeningShake()
-        return true
-    }
+    ButterflyManager.sharedManager.startListeningShake()
+    return true
+}
 ````
 
 ## Contact
