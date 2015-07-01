@@ -32,21 +32,21 @@ import CoreGraphics
 //
 
 @objc protocol ButterflyDrawViewDelegate {
-    //
-    // Called when start drawing in ButterflyDrawView
-    //
+    ///
+    /// Called when start drawing in ButterflyDrawView
+    ///
     func drawViewDidStartDrawingInView(drawView: ButterflyDrawView?)
     
-    //
-    // Called when end drawing in ButterflyDrawView
-    //
+    ///
+    /// Called when end drawing in ButterflyDrawView
+    ///
     func drawViewDidEndDrawingInView(drawView: ButterflyDrawView?)
 }
 
 ///
 // ButterflyDrawView Class.
 //
-class ButterflyDrawView : UIView {
+internal class ButterflyDrawView : UIView {
     
     /// Line width of the drawing path.
     var lineWidth: Float?
@@ -56,7 +56,6 @@ class ButterflyDrawView : UIView {
     
     weak var delegate: ButterflyDrawViewDelegate?
     
-    ///
     var isTouchBegan: Bool?
     
     private var backgroundImageView: UIImageView?
@@ -66,8 +65,6 @@ class ButterflyDrawView : UIView {
     private var previousPoint: CGPoint?
     
     private var oldPoint: CGPoint?
-    
-    // This is the designated initializer of ButterflyDrawView.
     
     override init(frame: CGRect) {
         super.init(frame: UIScreen.mainScreen().bounds)
@@ -113,8 +110,8 @@ class ButterflyDrawView : UIView {
     
     override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
         if let bool = isTouchBegan {
-            if delegate != nil {
-                delegate?.drawViewDidStartDrawingInView(self)
+            if let delegate = self.delegate  {
+                delegate.drawViewDidStartDrawingInView(self)
             }
             isTouchBegan = false
         }
