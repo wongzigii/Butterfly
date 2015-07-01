@@ -1,1 +1,64 @@
-# ShakingBug
+# Butterfly
+
+Butterfly is a lightweight library for integrating bug-report and feedback features with shake-motion event elegantly. 
+
+Just need two lines of code.
+
+## Goals of this project
+
+One of the main issues accross the iOS development is the feedback of new features and bug report.
+
+The most common way is to use `mailto` to send a dry and boring email :
+
+````swift
+let str = "mailto:foo@example.com?cc=bar@example.com&subject=Greetings%20from%20Cupertino!&body=Wish%20you%20were%20here!"
+let url = NSURL(string: str)
+UIApplication.sharedApplication().openURL(url)
+````
+
+Butterfly provides an elegant way to present users' feedback as easy as possible.
+
+## Quick Look
+
+![](./Screenshot/Demo.gif)
+
+## Installation
+
+### via [CocoaPod](http://cocoapods.org/)
+
+    source 'https://github.com/CocoaPods/Specs.git'
+    platform :ios, '8.0'
+    use_frameworks!
+
+    pod 'Butterfly', '~> 0.1.2'
+
+###  Manually
+    
+    $ git submodule add https://github.com/wongzigii/Butterfly.git
+
+- Open the `Butterfly` folder, and drag `Butterfly.xcodeproj` into the file navigator of your app project, under your app project.
+- In Xcode, navigate to the target configuration window by clicking on the blue project icon, and selecting the application target under the "Targets" heading in the sidebar.
+- In the tab bar at the top of that window, open the "Build Phases" panel.
+- Add Kingfisher.framework within the "Target Dependencies"
+- Click on the + button at the top left of "Build Phases" panel and select "New Copy Files Phase". Rename this new phase to "Copy Frameworks", set the "Destination" to "Frameworks", and add Butterfly.framework.
+
+## Usage
+
+````swift
+import Butterfly
+````
+
+Then put this into `didFinishLaunchingWithOptions` method in `AppDelegate` , 
+
+````swift
+ButterflyManager.sharedManager.startListeningShake()
+````
+
+## Contact
+
+- Contact me on [Sina Weibo](http://weibo.com/wongzigii)
+- Email [me](mailto:wongzigii@outlook.com)
+
+## License
+
+Butterfly is under MIT LICENCE, see the [LICENCE](https://github.com/wongzigii/Butterfly/blob/master/LICENSE) file for more info.
