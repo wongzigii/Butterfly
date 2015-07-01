@@ -26,9 +26,7 @@
 
 import UIKit
 
-//
-// Post shaking notification while fetching motion event.
-//
+/// Post shaking notification while fetching motion event.
 public extension UIWindow {
     
     public override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
