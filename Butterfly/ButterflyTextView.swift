@@ -35,7 +35,11 @@ internal class ButterflyTextView : UITextView, UITextViewDelegate {
     var isShowing: Bool!
     
     init() {
-        let frame = CGRectMake(textViewWidthMargin, -textViewHeight, UIScreen.mainScreen().bounds.size.width - 2*textViewWidthMargin, textViewHeight)
+        let frame = CGRect(
+            x: textViewWidthMargin,
+            y: -textViewHeight,
+            width: UIScreen.mainScreen().bounds.size.width - 2*textViewWidthMargin,
+            height: textViewHeight)
         super.init(frame: frame, textContainer: nil)
         layer.cornerRadius = textViewCornerRadius
         clipsToBounds = true
@@ -48,14 +52,18 @@ internal class ButterflyTextView : UITextView, UITextViewDelegate {
     
     func show() {
         if isShowing == false {
-            self.isShowing = true
+            isShowing = true
             UIView.animateWithDuration(0.5,
                 delay: 0,
                 usingSpringWithDamping: 0.5,
                 initialSpringVelocity: 0.7,
                 options: UIViewAnimationOptions.allZeros,
                 animations: { () -> Void in
-                    self.frame = CGRectMake(self.frame.origin.x, -self.frame.origin.y, self.frame.size.width, self.frame.size.height)
+                    self.frame = CGRect(
+                        x: self.frame.origin.x,
+                        y: -self.frame.origin.y,
+                        width: self.frame.size.width,
+                        height: self.frame.size.height)
                 }) { (Bool) -> Void in
                     self.becomeFirstResponder()
             }
@@ -64,14 +72,18 @@ internal class ButterflyTextView : UITextView, UITextViewDelegate {
     
     func hide() {
         if isShowing == true {
-            self.isShowing = false
+            isShowing = false
             UIView.animateWithDuration(0.5,
                 delay: 0,
                 usingSpringWithDamping: 0.5,
                 initialSpringVelocity: 0.7,
                 options: UIViewAnimationOptions.allZeros,
                 animations: { () -> Void in
-                    self.frame = CGRectMake(self.frame.origin.x, -self.frame.origin.y, self.frame.size.width, self.frame.size.height)
+                    self.frame = CGRect(
+                        x: self.frame.origin.x,
+                        y: -self.frame.origin.y,
+                        width: self.frame.size.width,
+                        height: self.frame.size.height)
                 }) { (Bool) -> Void in
                     self.resignFirstResponder()
             }

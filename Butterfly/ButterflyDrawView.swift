@@ -109,10 +109,8 @@ internal class ButterflyDrawView : UIView {
     }
     
     override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
-        if let bool = isTouchBegan {
-            if let delegate = self.delegate  {
-                delegate.drawViewDidStartDrawingInView(self)
-            }
+        if let bool = isTouchBegan, delegate = self.delegate {
+            delegate.drawViewDidStartDrawingInView(self)
             isTouchBegan = false
         }
         
@@ -121,8 +119,12 @@ internal class ButterflyDrawView : UIView {
             previousPoint = touch.previousLocationInView(self)
             let currentPoint: CGPoint = touch.locationInView(self)
             
-            let midPoint1 = CGPointMake((oldPoint!.x + previousPoint!.x) / 2, (oldPoint!.y + previousPoint!.y) / 2)
-            let midPoint2 = CGPointMake((previousPoint!.x + currentPoint.x) / 2, (previousPoint!.y + currentPoint.y) / 2)
+            let midPoint1 = CGPoint(
+                x: (oldPoint!.x + previousPoint!.x) / 2,
+                y: (oldPoint!.y + previousPoint!.y) / 2)
+            let midPoint2 = CGPoint(
+                x: (previousPoint!.x + currentPoint.x) / 2,
+                y: (previousPoint!.y + currentPoint.y) / 2)
             
             path?.moveToPoint(midPoint1)
             path?.addQuadCurveToPoint(midPoint2, controlPoint: previousPoint!)

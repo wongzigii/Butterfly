@@ -42,7 +42,12 @@ internal class ButterflyTopBar: UIView {
     var titleLabel: UILabel?
     
     convenience init() {
-        self.init(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, topBarHeight))
+        let rect = CGRect(
+            x: 0,
+            y: 0,
+            width: UIScreen.mainScreen().bounds.size.width,
+            height: topBarHeight)
+        self.init(frame: rect)
     }
     
     override init(frame: CGRect) {
@@ -60,7 +65,11 @@ internal class ButterflyTopBar: UIView {
         let centerY: CGFloat = self.frame.size.height / 2 - topBarButtonHeight / 2
         
         cancelButton = UIButton()
-        cancelButton?.frame = CGRectMake(topBarMarginWidth, centerY, topBarButtonWidth, topBarButtonHeight)
+        cancelButton?.frame = CGRect(
+            x: topBarMarginWidth,
+            y: centerY,
+            width: topBarButtonWidth,
+            height: topBarButtonHeight)
         cancelButton?.setTitle("Cancel", forState: UIControlState.Normal)
         cancelButton?.titleLabel?.textAlignment = NSTextAlignment.Center
         cancelButton?.titleLabel?.textColor = UIColor.whiteColor()
@@ -71,7 +80,11 @@ internal class ButterflyTopBar: UIView {
         self.addSubview(cancelButton!)
         
         titleLabel = UILabel()
-        titleLabel?.frame = CGRectMake(self.frame.width / 2 - topBarButtonWidth / 2, centerY, topBarButtonWidth, topBarButtonHeight)
+        titleLabel?.frame = CGRect(
+            x: self.frame.width / 2 - topBarButtonWidth / 2,
+            y: centerY,
+            width: topBarButtonWidth,
+            height: topBarButtonHeight)
         titleLabel?.text = "Feedback"
         titleLabel?.textAlignment = NSTextAlignment.Center
         titleLabel?.textColor = UIColor.whiteColor()
@@ -79,7 +92,11 @@ internal class ButterflyTopBar: UIView {
         self.addSubview(titleLabel!)
         
         sendButton = UIButton()
-        sendButton?.frame = CGRectMake(self.frame.size.width - topBarMarginWidth - topBarButtonWidth, centerY, topBarButtonWidth, topBarButtonHeight)
+        sendButton?.frame = CGRect(
+            x: self.frame.size.width - topBarMarginWidth - topBarButtonWidth,
+            y: centerY,
+            width: topBarButtonWidth,
+            height: topBarButtonHeight)
         sendButton?.setTitle("Send", forState: UIControlState.Normal)
         sendButton?.titleLabel?.textAlignment = NSTextAlignment.Center
         sendButton?.titleLabel?.textColor = UIColor.whiteColor()

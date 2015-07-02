@@ -36,15 +36,11 @@ private let instance = ButterflyManager()
 public class ButterflyManager: NSObject, ButterflyViewControllerDelegate {
   
     public var imageWillUpload: UIImage? {
-        get{
-            return self.butterflyViewController?.imageWillUpload
-        }
+        return self.butterflyViewController?.imageWillUpload
     }
     
     public var textWillUpload: String? {
-        get{
-            return self.butterflyViewController?.textWillUpload
-        }
+        return self.butterflyViewController?.textWillUpload
     }
     
     /// Manager is listening shake event or not.
