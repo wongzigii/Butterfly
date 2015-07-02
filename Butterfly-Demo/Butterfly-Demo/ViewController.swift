@@ -11,11 +11,11 @@ import Butterfly
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var objectArray: Array<String>?
+    var objectArray: [String]?
     
-    var titleArray: Array<String>?
+    var titleArray: [String]?
     
-    var dateArray: Array<String>?
+    var dateArray: [String]?
     
     var root = []
     
