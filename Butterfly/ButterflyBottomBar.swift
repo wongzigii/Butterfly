@@ -64,17 +64,32 @@ class ButterflyBottomBar: UIView {
         let clearButtonImg = UIImage(contentsOfFile: clearButtonImgPath as String)
         
         colorChangedButton = UIButton()
-        colorChangedButton?.frame = CGRectMake(ButtonMarginWidth, centerY, bottomBarButtonSize, bottomBarButtonSize)
+        let colorButtonRect = CGRect(
+            x: ButtonMarginWidth,
+            y: centerY,
+            width: bottomBarButtonSize,
+            height: bottomBarButtonSize)
+        colorChangedButton?.frame = colorButtonRect
         colorChangedButton?.setImage(colorChangeButtonImg, forState: UIControlState.Normal)
         self.addSubview(colorChangedButton!)
         
         descriptionButton = UIButton()
-        descriptionButton?.frame = CGRectMake(self.center.x - bottomBarButtonSize / 2, centerY, bottomBarButtonSize, bottomBarButtonSize)
+        let descriptionButtonRect = CGRect(
+            x: self.center.x - bottomBarButtonSize / 2,
+            y: centerY,
+            width: bottomBarButtonSize,
+            height: bottomBarButtonSize)
+        descriptionButton?.frame = descriptionButtonRect
         descriptionButton?.setImage(descriptionButtonImg, forState: UIControlState.Normal)
         self.addSubview(descriptionButton!)
         
         clearPathButton = UIButton()
-        clearPathButton?.frame = CGRectMake(self.frame.size.width - ButtonMarginWidth - bottomBarButtonSize, centerY, bottomBarButtonSize, bottomBarButtonSize)
+        let clearPathButtonRect = CGRect(
+            x: self.frame.size.width - ButtonMarginWidth - bottomBarButtonSize,
+            y: centerY,
+            width: bottomBarButtonSize,
+            height: bottomBarButtonSize)
+        clearPathButton?.frame = clearPathButtonRect
         clearPathButton?.setImage(clearButtonImg, forState: UIControlState.Normal)
         self.addSubview(clearPathButton!)
     }
