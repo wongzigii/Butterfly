@@ -17,4 +17,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
   s.source_files = 'Butterfly/*.{h,swift}'
   s.ios.resource_bundle = { 'Butterfly' => 'Butterfly/Logo/*.png' }
+  s.dependency 'Alamofire', '~> 1.2'
 end
