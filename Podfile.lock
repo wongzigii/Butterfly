@@ -1,13 +1,13 @@
 PODS:
   - Alamofire (1.2.3)
-  - Butterfly (0.3.1):
+  - Butterfly (0.3.4):
     - Alamofire (~> 1.2)
 
 DEPENDENCIES:
-  - Butterfly (~> 0.3.1)
+  - Butterfly (~> 0.3.4)
 
 SPEC CHECKSUMS:
   Alamofire: 5550bf0b575ed1a4bf9be572f9463e1015cc169e
-  Butterfly: 724d467938fa6760c97996545da72bf4841bfe2c
+  Butterfly: bcfc2ff5bb3c979ce6f75b82a2f35c501f264d54
 
 COCOAPODS: 0.36.4

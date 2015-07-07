@@ -51,41 +51,41 @@ private struct FileUploadInfo {
     }
 }
 
-public class FileUploader {
+class FileUploader {
     
     private var parameters = [String:String]()
     private var files = [FileUploadInfo]()
     private var headers = [String:String]()
     
-    public func setValue( value: String, forParameter parameter: String ) {
+    func setValue( value: String, forParameter parameter: String ) {
         parameters[parameter] = value
     }
     
-    public func setValue( value: String, forHeader header: String ) {
+    func setValue( value: String, forHeader header: String ) {
         headers[header] = value
     }
     
-    public func addParametersFrom( #map: [String:String] ) {
+    func addParametersFrom( #map: [String:String] ) {
         for (key,value) in map {
             parameters[key] = value
         }
     }
     
-    public func addHeadersFrom( #map: [String:String] ) {
+    func addHeadersFrom( #map: [String:String] ) {
         for (key,value) in map {
             headers[key] = value
         }
     }
     
-    public func addFileURL( url: NSURL, withName name: String, withMimeType mimeType:String? = nil ) {
+    func addFileURL( url: NSURL, withName name: String, withMimeType mimeType:String? = nil ) {
         files.append( FileUploadInfo( name: name, withFileURL: url, withMimeType: mimeType ) )
     }
     
-    public func addFileData( data: NSData, withName name: String, withMimeType mimeType:String = "application/octet-stream" ) {
+    func addFileData( data: NSData, withName name: String, withMimeType mimeType:String = "application/octet-stream" ) {
         files.append( FileUploadInfo( name: name, withData: data, withMimeType: mimeType ) )
     }
     
-    public func uploadFile( request sourceRequest: NSURLRequest ) -> Request? {
+    func uploadFile( request sourceRequest: NSURLRequest ) -> Request? {
         var request = sourceRequest.mutableCopy() as! NSMutableURLRequest
         let boundary = "FileUploader-boundary-\(arc4random())-\(arc4random())"
         request.setValue( "multipart/form-data;boundary=\(boundary)", forHTTPHeaderField: "Content-Type")

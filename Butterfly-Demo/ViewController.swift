@@ -24,6 +24,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         root = NSArray(contentsOfFile: NSBundle.mainBundle().pathForResource("data", ofType: "plist")!)!
+        But
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

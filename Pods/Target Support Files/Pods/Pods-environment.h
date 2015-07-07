@@ -16,5 +16,5 @@
 #define COCOAPODS_POD_AVAILABLE_Butterfly
 #define COCOAPODS_VERSION_MAJOR_Butterfly 0
 #define COCOAPODS_VERSION_MINOR_Butterfly 3
-#define COCOAPODS_VERSION_PATCH_Butterfly 1
+#define COCOAPODS_VERSION_PATCH_Butterfly 4
 
