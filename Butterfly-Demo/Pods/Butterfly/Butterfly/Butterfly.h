@@ -1,8 +1,8 @@
 //
-//  UIWindow+ShakingBug.swift
+//  Butterfly.h
 //  Butterfly
 //
-//  Created by Zhijie Huang on 15/6/20.
+//  Created by Zhijie Huang on 15/4/6.
 //
 //  Copyright (c) 2015 Zhijie Huang <wongzigii@outlook.com>
 //
@@ -24,14 +24,14 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import UIKit
+#import <UIKit/UIKit.h>
 
-/// Post shaking notification while fetching motion event.
-public extension UIWindow {
-    
-    public override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
-        if event.type == UIEventType.Motion && event.subtype == UIEventSubtype.MotionShake {
-            NSNotificationCenter.defaultCenter().postNotificationName(ButterflyDidShakingNotification, object: self)
-        }
-    }
-}
+//! Project version number for Butterfly.
+FOUNDATION_EXPORT double ButterflyVersionNumber;
+
+//! Project version string for Butterfly.
+FOUNDATION_EXPORT const unsigned char ButterflyVersionString[];
+
+// In this header, you should import all the public headers of your framework using statements like #import <Butterfly/PublicHeader.h>
+
+
