@@ -1,5 +1,5 @@
 //
-//  UIWindow+ShakingBug.swift
+//  UIWindow+Butterfly.swift
 //  Butterfly
 //
 //  Created by Zhijie Huang on 15/6/20.
