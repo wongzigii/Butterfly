@@ -14,7 +14,7 @@
 		E0BA8D821B4210BA0086D67A /* ButterflyDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BA8D7C1B4210BA0086D67A /* ButterflyDrawView.swift */; };
 		E0BA8D831B4210BA0086D67A /* ButterflyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BA8D7D1B4210BA0086D67A /* ButterflyManager.swift */; };
 		E0BA8D841B4210BA0086D67A /* ButterflyTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BA8D7E1B4210BA0086D67A /* ButterflyTextView.swift */; };
-		E0BA8D851B4210BA0086D67A /* UIWindow+ShakingBug.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BA8D7F1B4210BA0086D67A /* UIWindow+ShakingBug.swift */; };
+		E0BA8D851B4210BA0086D67A /* UIWindow+Butterfly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BA8D7F1B4210BA0086D67A /* UIWindow+Butterfly.swift */; };
 		E0BA8D881B4211380086D67A /* ButterflyTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BA8D871B4211380086D67A /* ButterflyTopBar.swift */; };
 		E0BA8D8A1B42115A0086D67A /* ButterflyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BA8D891B42115A0086D67A /* ButterflyViewController.swift */; };
 		E0BA8DEC1B421AD50086D67A /* analytics.png in Resources */ = {isa = PBXBuildFile; fileRef = E0BA8DE91B421AD50086D67A /* analytics.png */; };
@@ -43,7 +43,7 @@
 		E0BA8D7C1B4210BA0086D67A /* ButterflyDrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButterflyDrawView.swift; sourceTree = "<group>"; };
 		E0BA8D7D1B4210BA0086D67A /* ButterflyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButterflyManager.swift; sourceTree = "<group>"; };
 		E0BA8D7E1B4210BA0086D67A /* ButterflyTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButterflyTextView.swift; sourceTree = "<group>"; };
-		E0BA8D7F1B4210BA0086D67A /* UIWindow+ShakingBug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+ShakingBug.swift"; sourceTree = "<group>"; };
+		E0BA8D7F1B4210BA0086D67A /* UIWindow+Butterfly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Butterfly.swift"; sourceTree = "<group>"; };
 		E0BA8D871B4211380086D67A /* ButterflyTopBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButterflyTopBar.swift; sourceTree = "<group>"; };
 		E0BA8D891B42115A0086D67A /* ButterflyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButterflyViewController.swift; sourceTree = "<group>"; };
 		E0BA8DE91B421AD50086D67A /* analytics.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = analytics.png; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 				E0BA8D7E1B4210BA0086D67A /* ButterflyTextView.swift */,
 				E0BA8D871B4211380086D67A /* ButterflyTopBar.swift */,
 				E0BA8D891B42115A0086D67A /* ButterflyViewController.swift */,
-				E0BA8D7F1B4210BA0086D67A /* UIWindow+ShakingBug.swift */,
+				E0BA8D7F1B4210BA0086D67A /* UIWindow+Butterfly.swift */,
 				E0BA8D611B42101A0086D67A /* Supporting Files */,
 			);
 			path = Butterfly;
@@ -259,7 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0BA8D851B4210BA0086D67A /* UIWindow+ShakingBug.swift in Sources */,
+				E0BA8D851B4210BA0086D67A /* UIWindow+Butterfly.swift in Sources */,
 				E0BA8D831B4210BA0086D67A /* ButterflyManager.swift in Sources */,
 				E0BA8D841B4210BA0086D67A /* ButterflyTextView.swift in Sources */,
 				E0BA8D8A1B42115A0086D67A /* ButterflyViewController.swift in Sources */,
@@ -442,6 +442,7 @@
 				E089D9861B43814400761985 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E0BA8D581B42101A0086D67A /* Build configuration list for PBXProject "Butterfly" */ = {
 			isa = XCConfigurationList;
