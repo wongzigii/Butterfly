@@ -1,4 +1,4 @@
-ine:
+machine:
   environment:
     XCODE_SCHEME: Butterfly
   xcode:
