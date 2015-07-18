@@ -1,0 +1,13 @@
+PODS:
+  - Alamofire (1.2.3)
+  - Butterfly (0.3.4):
+    - Alamofire (~> 1.2)
+
+DEPENDENCIES:
+  - Butterfly (~> 0.3.0)
+
+SPEC CHECKSUMS:
+  Alamofire: 5550bf0b575ed1a4bf9be572f9463e1015cc169e
+  Butterfly: bcfc2ff5bb3c979ce6f75b82a2f35c501f264d54
+
+COCOAPODS: 0.37.2
