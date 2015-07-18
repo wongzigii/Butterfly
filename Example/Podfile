@@ -1,0 +1,2 @@
+use_frameworks!
+pod 'Butterfly', '~> 0.3.0'

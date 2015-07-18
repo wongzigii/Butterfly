@@ -61,18 +61,10 @@ func application(application: UIApplication, didFinishLaunchingWithOptions launc
 }
 ````
 
-From now on, you can access the screenshot and feedback:
-
-````swift
-self.screenshot = ButterflyManager.sharedManager.imageWillUpload
-self.feedbackText = ButterflyManager.sharedManager.textWillUpload
-````
-
 ## Contact
 
 - Contact me on [Sina Weibo](http://weibo.com/wongzigii)
 - Email [me](mailto:wongzigii@outlook.com)
-- [Issue](https://github.com/wongzigii/Butterfly/issues/new)
 
 ## License
 
