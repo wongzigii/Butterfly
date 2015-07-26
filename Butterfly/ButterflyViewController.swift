@@ -28,7 +28,7 @@ import UIKit
 
 /// MARK: - Protocol of `ButterflyViewController
 
-@objc protocol ButterflyViewControllerDelegate {
+protocol ButterflyViewControllerDelegate: class {
     
     func ButterflyViewControllerDidPressedSendButton(drawView: ButterflyDrawView?)
 }

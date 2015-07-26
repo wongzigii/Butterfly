@@ -31,7 +31,7 @@ import CoreGraphics
 //	Protocol of `ButterflyDrawView`.
 //
 
-@objc protocol ButterflyDrawViewDelegate {
+protocol ButterflyDrawViewDelegate: class {
     ///
     /// Called when start drawing in ButterflyDrawView
     ///
