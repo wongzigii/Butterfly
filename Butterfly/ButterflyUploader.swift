@@ -10,7 +10,7 @@
 import Foundation
 import Alamofire
 
-private struct FileUploadInfo {
+private struct ButterflyFileUploadInfo {
     var name:String
     var mimeType:String
     var fileName:String
@@ -51,41 +51,41 @@ private struct FileUploadInfo {
     }
 }
 
-class FileUploader {
+public class ButterflyFileUploader {
     
     private var parameters = [String:String]()
     private var files = [FileUploadInfo]()
     private var headers = [String:String]()
     
-    func setValue( value: String, forParameter parameter: String ) {
+    public func setValue( value: String, forParameter parameter: String ) {
         parameters[parameter] = value
     }
     
-    func setValue( value: String, forHeader header: String ) {
+    public func setValue( value: String, forHeader header: String ) {
         headers[header] = value
     }
     
-    func addParametersFrom( #map: [String:String] ) {
+    public func addParametersFrom( #map: [String:String] ) {
         for (key,value) in map {
             parameters[key] = value
         }
     }
     
-    func addHeadersFrom( #map: [String:String] ) {
+    public func addHeadersFrom( #map: [String:String] ) {
         for (key,value) in map {
             headers[key] = value
         }
     }
     
-    func addFileURL( url: NSURL, withName name: String, withMimeType mimeType:String? = nil ) {
+    public func addFileURL( url: NSURL, withName name: String, withMimeType mimeType:String? = nil ) {
         files.append( FileUploadInfo( name: name, withFileURL: url, withMimeType: mimeType ) )
     }
     
-    func addFileData( data: NSData, withName name: String, withMimeType mimeType:String = "application/octet-stream" ) {
+    public func addFileData( data: NSData, withName name: String, withMimeType mimeType:String = "application/octet-stream" ) {
         files.append( FileUploadInfo( name: name, withData: data, withMimeType: mimeType ) )
     }
     
-    func uploadFile( request sourceRequest: NSURLRequest ) -> Request? {
+    public func uploadFile( request sourceRequest: NSURLRequest ) -> Request? {
         var request = sourceRequest.mutableCopy() as! NSMutableURLRequest
         let boundary = "FileUploader-boundary-\(arc4random())-\(arc4random())"
         request.setValue( "multipart/form-data;boundary=\(boundary)", forHTTPHeaderField: "Content-Type")

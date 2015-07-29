@@ -20,7 +20,6 @@
 		57F9A53DB22331AB5A8D7878 /* Butterfly.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3838315DC6A2D99F2594088F /* Butterfly.bundle */; };
 		61ABFF26935212088DCCB95F /* ButterflyTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E1F8FE8C4E2816101B115 /* ButterflyTopBar.swift */; };
 		6D81CF3158EE8391EEA7A485 /* Pods-Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CF979F00569EF231B564D53C /* Pods-Alamofire-dummy.m */; };
-		7C2C1CEE5450F46E05396EF9 /* ButterflyUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3195492DE950036C145674CE /* ButterflyUploader.swift */; };
 		7E677EB22443ADBD576EE915 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D88E43C2D9FD04E5FA1EAF1 /* Alamofire.swift */; };
 		7F29AC773C1459E0D7C54808 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B3F70DE18197D9373B3C62 /* Manager.swift */; };
 		964F8753AE897793AA359447 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90633DD8367DD7BEC7682584 /* Foundation.framework */; };
@@ -80,7 +79,6 @@
 		2612F2791D2EA5CA1C18A8FD /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
 		2843A19AD6618ACC922D80B7 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
 		2A6803E15D18A39BBCC62FD9 /* Pods-Butterfly-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Butterfly-prefix.pch"; sourceTree = "<group>"; };
-		3195492DE950036C145674CE /* ButterflyUploader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ButterflyUploader.swift; path = Butterfly/ButterflyUploader.swift; sourceTree = "<group>"; };
 		36B56AFF38E4A26C1AAB6F85 /* Pods-Butterfly-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Butterfly-umbrella.h"; sourceTree = "<group>"; };
 		3838315DC6A2D99F2594088F /* Butterfly.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Butterfly.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D88E43C2D9FD04E5FA1EAF1 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
@@ -302,7 +300,6 @@
 				5D74D63E2DA8B146B36CFBAE /* ButterflyManager.swift */,
 				92C79F473C545F44DA4B1757 /* ButterflyTextView.swift */,
 				D78E1F8FE8C4E2816101B115 /* ButterflyTopBar.swift */,
-				3195492DE950036C145674CE /* ButterflyUploader.swift */,
 				199067909A2A136C33FF7006 /* ButterflyViewController.swift */,
 				6C01E760F5FC4EE233CCA98E /* UIWindow+Butterfly.swift */,
 				CC81613B608B57CADA0E4C85 /* Resources */,
@@ -474,7 +471,6 @@
 				9E0E58931C622E5E0B986971 /* ButterflyManager.swift in Sources */,
 				0F38F9FFC89B077F77A5C7B8 /* ButterflyTextView.swift in Sources */,
 				61ABFF26935212088DCCB95F /* ButterflyTopBar.swift in Sources */,
-				7C2C1CEE5450F46E05396EF9 /* ButterflyUploader.swift in Sources */,
 				AB19D3DA7CC1F223491ECB98 /* ButterflyViewController.swift in Sources */,
 				E5610EBF8EA641A47ADD9B2B /* Pods-Butterfly-dummy.m in Sources */,
 				2A19A3412C629F2783ED1347 /* UIWindow+Butterfly.swift in Sources */,
