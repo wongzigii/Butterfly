@@ -82,7 +82,6 @@ public class ButterflyManager: NSObject, ButterflyViewControllerDelegate {
         /// NOTE: Custom this method for further uploading.
         ///
         /// That would be a great idea to upload your useful application information here manually .
-        ButterflyUp
         print("ButterflyViewController 's delegate method [-ButterflyViewControllerDidEndReporting] invoked\n")
     }
     
