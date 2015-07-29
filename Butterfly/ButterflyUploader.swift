@@ -54,7 +54,7 @@ private struct ButterflyFileUploadInfo {
 public class ButterflyFileUploader {
     
     private var parameters = [String:String]()
-    private var files = [FileUploadInfo]()
+    private var files = [ButterflyFileUploader]()
     private var headers = [String:String]()
     
     public func setValue( value: String, forParameter parameter: String ) {
@@ -78,11 +78,11 @@ public class ButterflyFileUploader {
     }
     
     public func addFileURL( url: NSURL, withName name: String, withMimeType mimeType:String? = nil ) {
-        files.append( FileUploadInfo( name: name, withFileURL: url, withMimeType: mimeType ) )
+        files.append( ButterflyFileUploader( name: name, withFileURL: url, withMimeType: mimeType ) )
     }
     
     public func addFileData( data: NSData, withName name: String, withMimeType mimeType:String = "application/octet-stream" ) {
-        files.append( FileUploadInfo( name: name, withData: data, withMimeType: mimeType ) )
+        files.append( ButterflyFileUploader( name: name, withData: data, withMimeType: mimeType ) )
     }
     
     public func uploadFile( request sourceRequest: NSURLRequest ) -> Request? {
