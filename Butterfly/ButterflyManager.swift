@@ -79,7 +79,10 @@ public class ButterflyManager: NSObject, ButterflyViewControllerDelegate {
     /// ButterflyViewController delegate method. Will be invoked when send button pressed. You may want to implement this method to handle the image.
     ///
     func ButterflyViewControllerDidPressedSendButton(drawView: ButterflyDrawView?) {
-        /// Custom this method.
+        /// NOTE: Custom this method for further uploading.
+        ///
+        /// That would be a great idea to upload your useful application information here manually .
+        ButterflyUp
         print("ButterflyViewController 's delegate method [-ButterflyViewControllerDidEndReporting] invoked\n")
     }
     
