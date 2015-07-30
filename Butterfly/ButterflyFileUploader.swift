@@ -1,21 +1,39 @@
 //
-//  ButterflyUploader.swift
+//  ButterflyFileUploader.swift
 //  Butterfly
 //
-//  Created by Wongzigii on 7/7/15.
-//  Copyright (c) 2015 Wongzigii. All rights reserved.
+//  Created by Zhijie Huang on 15/7/30.
 //
+//  Copyright (c) 2015 Zhijie Huang <wongzigii@outlook.com>
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 //  Largely based on this stackoverflow question: http://stackoverflow.com/questions/26121827/uploading-file-with-parameters-using-alamofire/28467829//
 
 import Foundation
 import Alamofire
 
 private struct ButterflyFileUploadInfo {
-    var name:String
-    var mimeType:String
-    var fileName:String
-    var url:NSURL?
-    var data:NSData?
+    var name: String?
+    var mimeType: String?
+    var fileName: String?
+    var url: NSURL?
+    var data: NSData?
     
     init( name: String, withFileURL url: NSURL, withMimeType mimeType: String? = nil ) {
         self.name = name
@@ -54,7 +72,7 @@ private struct ButterflyFileUploadInfo {
 public class ButterflyFileUploader {
     
     private var parameters = [String:String]()
-    private var files = [ButterflyFileUploader]()
+    private var files = [ButterflyFileUploadInfo]()
     private var headers = [String:String]()
     
     public func setValue( value: String, forParameter parameter: String ) {
@@ -78,11 +96,11 @@ public class ButterflyFileUploader {
     }
     
     public func addFileURL( url: NSURL, withName name: String, withMimeType mimeType:String? = nil ) {
-        files.append( ButterflyFileUploader( name: name, withFileURL: url, withMimeType: mimeType ) )
+        files.append( ButterflyFileUploadInfo( name: name, withFileURL: url, withMimeType: mimeType ) )
     }
     
     public func addFileData( data: NSData, withName name: String, withMimeType mimeType:String = "application/octet-stream" ) {
-        files.append( ButterflyFileUploader( name: name, withData: data, withMimeType: mimeType ) )
+        files.append( ButterflyFileUploadInfo( name: name, withData: data, withMimeType: mimeType ) )
     }
     
     public func uploadFile( request sourceRequest: NSURLRequest ) -> Request? {
