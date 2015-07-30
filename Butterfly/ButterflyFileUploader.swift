@@ -136,7 +136,7 @@ public class ButterflyFileUploader {
         
         data.appendData("\r\n--\(boundary)--\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
         
-        return Alamofire.upload( request, data )
+        return Alamofire.upload( request, data: data )
     }
     
 }
