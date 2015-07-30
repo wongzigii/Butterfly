@@ -9,12 +9,12 @@
 // Alamofire
 #define COCOAPODS_POD_AVAILABLE_Alamofire
 #define COCOAPODS_VERSION_MAJOR_Alamofire 1
-#define COCOAPODS_VERSION_MINOR_Alamofire 2
-#define COCOAPODS_VERSION_PATCH_Alamofire 3
+#define COCOAPODS_VERSION_MINOR_Alamofire 3
+#define COCOAPODS_VERSION_PATCH_Alamofire 0
 
 // Butterfly
 #define COCOAPODS_POD_AVAILABLE_Butterfly
 #define COCOAPODS_VERSION_MAJOR_Butterfly 0
 #define COCOAPODS_VERSION_MINOR_Butterfly 3
-#define COCOAPODS_VERSION_PATCH_Butterfly 4
+#define COCOAPODS_VERSION_PATCH_Butterfly 12
 

@@ -79,8 +79,66 @@ public class ButterflyManager: NSObject, ButterflyViewControllerDelegate {
     /// ButterflyViewController delegate method. Will be invoked when send button pressed. You may want to implement this method to handle the image.
     ///
     func ButterflyViewControllerDidPressedSendButton(drawView: ButterflyDrawView?) {
-        /// Custom this method.
+        /// NOTE: Custom this method for further uploading.
+        ///
+        /// That would be a great idea to upload your useful application information here manually .
+        startUploading()
         print("ButterflyViewController 's delegate method [-ButterflyViewControllerDidEndReporting] invoked\n")
+    }
+    
+    ///   Call this method if upload is required.
+    
+    ///////////////////////////////////////////
+    //
+    //    public func startUploading() {
+    //
+    //        // This example uploads a file called example.png found in the app resources
+    //        let fileURL = NSBundle.mainBundle().URLForResource("example", withExtension: "png")
+    //        let fileUploader = ButterflyFileUploader()
+    //
+    //        // we can add multiple files
+    //        // this would be equivalent to: <input type="file" name="myFile"/>
+    //        fileUploader.addFileURL(fileURL!, withName: "myFile")
+    //
+    //        // we can add NSData objects directly
+    //        let data = UIImage(named: "sample")
+    //        fileUploader.addFileData( UIImageJPEGRepresentation(data,0.8), withName: "mySecondFile", withMimeType: "image/jpeg" )
+    //
+    //        // we can also add multiple aditional parameters
+    //        // this would be equivalent to: <input type="hidden" name="folderName" value="sample"/>
+    //        fileUploader.setValue( "sample", forParameter: "folderName" )
+    //
+    //        // put your server URL here
+    //
+    //        var request = NSMutableURLRequest( URL: NSURL(string: "http://myserver.com/uploadFile" )! )
+    //        request.HTTPMethod = "POST"
+    //        fileUploader.uploadFile(request: request)
+    
+    //    }
+    ///////////////////////////////////////////
+    
+    public func startUploading() {
+        
+        // This example uploads a file called example.png found in the app resources
+        let fileURL = NSBundle.mainBundle().URLForResource("example", withExtension: "png")
+        let fileUploader = ButterflyFileUploader()
+        
+        // we can add multiple files
+        // this would be equivalent to: <input type="file" name="myFile"/>
+        fileUploader.addFileURL(fileURL!, withName: "myFile")
+        
+        // we can add NSData objects directly
+        let data = UIImage(named: "sample")
+        fileUploader.addFileData( UIImageJPEGRepresentation(data,0.8), withName: "mySecondFile", withMimeType: "image/jpeg" )
+        
+        // we can also add multiple aditional parameters
+        // this would be equivalent to: <input type="hidden" name="folderName" value="sample"/>
+        fileUploader.setValue( "sample", forParameter: "folderName" )
+        
+        // put your server URL here
+        var request = NSMutableURLRequest( URL: NSURL(string: "http://myserver.com/uploadFile" )! )
+        request.HTTPMethod = "POST"
+        fileUploader.uploadFile(request: request)
     }
     
     /// Begin handling shake event.
