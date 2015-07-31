@@ -77,12 +77,12 @@ func ButterflyViewControllerDidPressedSendButton(drawView: ButterflyDrawView?) {
         
     ButterflyFileUploader.sharedUploader.upload()
     print("ButterflyViewController 's delegate method [-ButterflyViewControllerDidEndReporting] invoked\n")
-    }
+}
 ````
 
 ### Construction by configuration of ButterflyFileUploader
 
-With Butterfly v0.3.13, Butterfly included the `ButterflyFileUploader` to handle uploading stuff. `ButterflyFileUploader` is encapsulated under `Alamofire[https://github.com/Alamofire/Alamofire]` 's upload API.
+With Butterfly v0.3.13, Butterfly included the `ButterflyFileUploader` to handle uploading stuff. `ButterflyFileUploader` is encapsulated under [Alamofire](https://github.com/Alamofire/Alamofire) 's upload API.
 
 **SereverURLString**
 
