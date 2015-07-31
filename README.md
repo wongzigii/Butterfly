@@ -67,6 +67,7 @@ func application(application: UIApplication, didFinishLaunchingWithOptions launc
 ### How it works for uploading
 
 `ButterflyViewController` delegate method invoked when send button pressed. You may want to implement this method to handle the image. However, in Xcode Version 6.4 (6E35b) with Swift 2.0, there currently seems to be no way to call static (class) methods defined in a protocol (in pure Swift).
+Considering this issue, Butterfly included the `ButterflyFileUploader` to handle uploading stuff in v0.3.13. The `ButterflyFileUploader` class is an encapsulation under [Alamofire](https://github.com/Alamofire/Alamofire) 's upload API.
 
 ````swift
 func ButterflyViewControllerDidPressedSendButton(drawView: ButterflyDrawView?) {
@@ -80,9 +81,7 @@ func ButterflyViewControllerDidPressedSendButton(drawView: ButterflyDrawView?) {
 }
 ````
 
-### Construction by configuration of ButterflyFileUploader
-
-With Butterfly v0.3.13, Butterfly included the `ButterflyFileUploader` to handle uploading stuff. `ButterflyFileUploader` is encapsulated under [Alamofire](https://github.com/Alamofire/Alamofire) 's upload API.
+### Configuration of ButterflyFileUploader
 
 **SereverURLString**
 
@@ -130,13 +129,13 @@ public func addFileData( data: NSData, withName name: String, withMimeType mimeT
     files.append( ButterflyFileUploadInfo( name: name, withData: data, withMimeType: mimeType ) )
 }
 ````
-For further information, check out ButterflyFileUploader.
+For further information, please check out ButterflyFileUploader.swift.
 
 ## Contact
 
 - Contact me on [Sina Weibo](http://weibo.com/wongzigii)
 - Email [me](mailto:wongzigii@outlook.com)
-- [Issue](https://github.com/wongzigii/Butterfly/issues/new)
+- [Issue or require a new feature?](https://github.com/wongzigii/Butterfly/issues/new)
 
 ## License
 
