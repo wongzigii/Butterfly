@@ -16,7 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         ButterflyManager.sharedManager.startListeningShake()
-        
+        let uploader = ButterflyFileUploader.sharedUploader
+        uploader.setValue( "sample", forParameter: "folderName" )
+        uploader.setServerURLString("https://myserver.com/foo")
         return true
     }
 
