@@ -36,7 +36,7 @@ Butterfly provides an elegant way to present users' feedback as easy as possible
     platform :ios, '8.0'
     use_frameworks!
 
-    pod 'Butterfly', '~> 0.3.0'
+    pod 'Butterfly', '~> 0.3.13'
 
 ###  Manually
     
@@ -57,16 +57,80 @@ import Butterfly
 ````swift
 func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     ButterflyManager.sharedManager.startListeningShake()
+    let uploader = ButterflyFileUploader.sharedUploader
+    uploader.setValue( "sample", forParameter: "folderName" )
+    uploader.setServerURLString("https://myserver.com/foo")
     return true
 }
 ````
 
-From now on, you can access the screenshot and feedback:
+### How it works for uploading
+
+`ButterflyViewController` delegate method invoked when send button pressed. You may want to implement this method to handle the image. However, in Xcode Version 6.4 (6E35b) with Swift 2.0, there currently seems to be no way to call static (class) methods defined in a protocol (in pure Swift).
 
 ````swift
-self.screenshot = ButterflyManager.sharedManager.imageWillUpload
-self.feedbackText = ButterflyManager.sharedManager.textWillUpload
+func ButterflyViewControllerDidPressedSendButton(drawView: ButterflyDrawView?) {
+    if let image = imageWillUpload {
+        let data: UIImage = image
+        ButterflyFileUploader.sharedUploader.addFileData( UIImageJPEGRepresentation(data,0.8), withName: currentDate(), withMimeType: "image/jpeg" )
+    }
+        
+    ButterflyFileUploader.sharedUploader.upload()
+    print("ButterflyViewController 's delegate method [-ButterflyViewControllerDidEndReporting] invoked\n")
+    }
 ````
+
+### Construction by configuration of ButterflyFileUploader
+
+With Butterfly v0.3.13, Butterfly included the `ButterflyFileUploader` to handle uploading stuff. `ButterflyFileUploader` is encapsulated under `Alamofire[https://github.com/Alamofire/Alamofire]` 's upload API.
+
+**SereverURLString**
+
+````swift
+// @discussion Make sure your serverURLString is valid before a further application. 
+// Call `setServerURLString` to replace the default "http://myserver.com/uploadFile" with your own's.
+public var serverURLString: String? = "http://myserver.com/uploadFile"
+    
+///
+/// Set uploader 's server URL
+///
+/// @param     URL         The server URL.
+///
+public func setServerURLString( URL: String ) {
+    serverURLString = URL
+}
+````
+
+````swift
+///
+/// Add one file or multiple files with file URL to uploader.
+///
+/// @param    url          The URL of the file whose content will be encoded into the multipart form data.
+///
+/// @param    name         The name to associate with the file content in the `Content-Disposition` HTTP header.
+///
+/// @param    mimeType     The MIME type to associate with the data in the `Content-Type` HTTP header.
+///
+public func addFileURL( url: NSURL, withName name: String, withMimeType mimeType: String? = nil ) {
+    files.append( ButterflyFileUploadInfo( name: name, withFileURL: url, withMimeType: mimeType ) )
+}
+````
+
+````swift
+///
+/// Add one file or multiple files with NSData to uploader.
+///
+/// @param    data         The data to encode into the multipart form data.
+///
+/// @param    name         The name to associate with the file content in the `Content-Disposition` HTTP header.
+///
+/// @param    mimeType     The MIME type to associate with the data in the `Content-Type` HTTP header.
+///
+public func addFileData( data: NSData, withName name: String, withMimeType mimeType: String = "application/octet-stream" ) {
+    files.append( ButterflyFileUploadInfo( name: name, withData: data, withMimeType: mimeType ) )
+}
+````
+For further information, check out ButterflyFileUploader.
 
 ## Contact
 
