@@ -34,11 +34,13 @@ private let instance = ButterflyManager()
 ///  Main manager class of Butterfly
 
 public class ButterflyManager: NSObject, ButterflyViewControllerDelegate {
-  
+    
+    /// You can access instance variable `imageWillUpload` directly.
     public var imageWillUpload: UIImage? {
         return self.butterflyViewController?.imageWillUpload
     }
     
+    /// Or instance variable `textWillUploader`.
     public var textWillUpload: String? {
         return self.butterflyViewController?.textWillUpload
     }
@@ -82,8 +84,16 @@ public class ButterflyManager: NSObject, ButterflyViewControllerDelegate {
         /// NOTE: Custom this method for further uploading.
         ///
         /// That would be a great idea to upload your useful application information here manually .
+        if let image = imageWillUpload {
+            let data: UIImage = image
+            ButterflyFileUploader.sharedUploader.addFileData( UIImageJPEGRepresentation(data,0.8), withName: currentDate(), withMimeType: "image/jpeg" )
+        }
+        
+        ButterflyFileUploader.sharedUploader.upload()
         print("ButterflyViewController 's delegate method [-ButterflyViewControllerDidEndReporting] invoked\n")
     }
+    
+    
     
     /// Begin handling shake event.
     func handleShake(notification: NSNotification) {
@@ -113,6 +123,15 @@ public class ButterflyManager: NSObject, ButterflyViewControllerDelegate {
         }
     }
     
+    private func currentDate() -> String! {
+        let sec = NSDate().timeIntervalSinceNow
+        let currentDate = NSDate(timeIntervalSinceNow: sec)
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd HH/mm/ss"
+        let string = dateFormatter.stringFromDate(currentDate)
+        return string
+    }
     
     //
     // MARK: - Take screenshot
@@ -132,18 +151,18 @@ public class ButterflyManager: NSObject, ButterflyViewControllerDelegate {
         
         var imageOrientation: UIImageOrientation
         switch orientation {
-            case .LandscapeLeft:
-                imageOrientation = UIImageOrientation.Left
-                break
-            case .LandscapeRight:
-                imageOrientation = UIImageOrientation.Right
-                break
-            case .PortraitUpsideDown:
-                imageOrientation = UIImageOrientation.Down
-                break
-            case .Unknown, .Portrait:
-                imageOrientation = UIImageOrientation.Up
-                break
+        case .LandscapeLeft:
+            imageOrientation = UIImageOrientation.Left
+            break
+        case .LandscapeRight:
+            imageOrientation = UIImageOrientation.Right
+            break
+        case .PortraitUpsideDown:
+            imageOrientation = UIImageOrientation.Down
+            break
+        case .Unknown, .Portrait:
+            imageOrientation = UIImageOrientation.Up
+            break
         }
         let image = UIImage(CGImage: screenshot.CGImage, scale: screenshot.scale, orientation: imageOrientation)
         return image
