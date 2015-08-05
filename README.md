@@ -1,13 +1,18 @@
+
 # Butterfly
 
-![language](https://img.shields.io/badge/Language-%20Swift%20-orange.svg)
-![CocoaPods Version](https://img.shields.io/cocoapods/v/Butterfly.svg?style=flat)
-![MIT License](https://img.shields.io/github/license/mashape/apistatus.svg)
-![Platform](https://img.shields.io/badge/platform-%20iOS%20-lightgrey.svg)
+
+<p align="center">
+<img src="./Screenshot/Butterfly.png">
+</p>
+<p align="center">
+<img src="https://img.shields.io/badge/Language-%20Swift%20-orange.svg">
+<img src="https://img.shields.io/cocoapods/v/Butterfly.svg?style=flat">
+<img src="https://img.shields.io/cocoapods/l/Butterfly.svg?style=flat">
+<img src="https://img.shields.io/cocoapods/p/Butterfly.svg?style=flat">
+</p>
 
 Butterfly is a **lightweight** library for integrating bug-report and feedback features with shake-motion event elegantly. 
-
-Just need two lines of code.
 
 This project is inspired by Zhihu v3.0 originally.
 ## Goals of this project
