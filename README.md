@@ -14,7 +14,6 @@
 
 Butterfly is a **lightweight** library for integrating bug-report and feedback features with shake-motion event elegantly. 
 
-This project is inspired by Zhihu v3.0 originally.
 ## Goals of this project
 
 One of the main issues accross the iOS development is the feedback of new features and bug report.
