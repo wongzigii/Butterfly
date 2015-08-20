@@ -134,7 +134,11 @@ public class ButterflyViewController: UIViewController, ButterflyDrawViewDelegat
     }
     
     internal func colorChangedButtonPressed(sender: UIButton?) {
-        drawView?.lineColor = UIColor.yellowColor()
+        if (drawView?.lineColor != UIColor.yellowColor) {
+            drawView?.lineColor = UIColor.yellowColor()
+        } else {
+            drawView?.lineColor = UIColor.redColor()
+        }
     }
     
     internal func inputDescriptionButtonPressed(sender: UIButton?) {
