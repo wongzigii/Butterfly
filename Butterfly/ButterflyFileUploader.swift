@@ -73,6 +73,9 @@ private let sharedInstance = ButterflyFileUploader()
 
 public class ButterflyFileUploader {
     
+    /// The response received from the server, if any.
+    public var response: NSHTTPURLResponse? { return self.startUploading(request: self.request)?.response as? NSHTTPURLResponse }
+    
     // MARK: - Private instance
     private var parameters = [String: String]()
     private var files = [ButterflyFileUploadInfo]()
