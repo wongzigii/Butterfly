@@ -1,7 +1,7 @@
 
 # Butterfly
 
-<p align="center">
+<p align="leftr">
 <img src="https://img.shields.io/badge/Language-%20Swift%20-orange.svg">
 <img src="https://img.shields.io/cocoapods/v/Butterfly.svg?style=flat">
 <img src="https://img.shields.io/cocoapods/l/Butterfly.svg?style=flat">
