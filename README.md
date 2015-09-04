@@ -133,9 +133,7 @@ For further information, please check out ButterflyFileUploader.swift.
 
 ## Contact
 
-- Contact me on [Sina Weibo](http://weibo.com/wongzigii)
-- Email [me](mailto:wongzigii@outlook.com)
-- [Issue or require a new feature?](https://github.com/wongzigii/Butterfly/issues/new)
+![](./screenshot/twitter64.png)
 
 ## License
 
