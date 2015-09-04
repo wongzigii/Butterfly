@@ -133,7 +133,10 @@ For further information, please check out ButterflyFileUploader.swift.
 
 ## Contact
 
-![](./Screenshot/twitter64.png)
+<a href="https://twitter.com/wongzigii">
+  <img alt="Follow me on Twitter"
+       src="./Screenshot/twitter64.png" />
+</a>
 
 ## License
 
