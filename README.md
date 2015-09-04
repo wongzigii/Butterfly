@@ -133,7 +133,7 @@ For further information, please check out ButterflyFileUploader.swift.
 
 ## Contact
 
-![](./screenshot/twitter64.png)
+![](./Screenshot/twitter64.png)
 
 ## License
 
