@@ -45,7 +45,7 @@ Butterfly provides an elegant way to present users' feedback as easy as possible
 - Open the `Butterfly` folder, and drag `Butterfly.xcodeproj` into the file navigator of your app project, under your app project.
 - In Xcode, navigate to the target configuration window by clicking on the blue project icon, and selecting the application target under the "Targets" heading in the sidebar.
 - In the tab bar at the top of that window, open the "Build Phases" panel.
-- Add Kingfisher.framework within the "Target Dependencies"
+- Add Butterfly.framework within the "Target Dependencies"
 - Click on the + button at the top left of "Build Phases" panel and select "New Copy Files Phase". Rename this new phase to "Copy Frameworks", set the "Destination" to "Frameworks", and add Butterfly.framework.
 
 ## Usage
