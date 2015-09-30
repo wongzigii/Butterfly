@@ -12,7 +12,7 @@ Butterfly is a **lightweight** library for integrating bug-report and feedback f
 
 ## Goals of this project
 
-One of the main issues accross the iOS development is the feedback of new features and bug report.
+One of the main issues across the iOS development is the feedback of new features and bug report.
 
 The most common way is to use `mailto` to send a dry and boring email :
 
