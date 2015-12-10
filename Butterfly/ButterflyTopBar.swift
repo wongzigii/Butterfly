@@ -110,7 +110,7 @@ internal class ButterflyTopBar: UIView {
     private func generateImageFromUIColor(color: UIColor?) -> UIImage! {
         let rect = CGRectMake(0, 0, 1, 1)
         UIGraphicsBeginImageContext(rect.size)
-        let context: CGContextRef = UIGraphicsGetCurrentContext()
+        let context: CGContextRef? = UIGraphicsGetCurrentContext()
         CGContextSetFillColorWithColor(context, color!.CGColor)
         CGContextFillRect(context, rect)
         let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()

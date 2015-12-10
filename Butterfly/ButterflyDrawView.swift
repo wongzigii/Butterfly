@@ -90,31 +90,31 @@ internal class ButterflyDrawView : UIView {
         
         backgroundImageView = UIImageView(frame: self.bounds)
         addSubview(backgroundImageView!)
-        backgroundImageView?.autoresizingMask = UIViewAutoresizing.FlexibleHeight | .FlexibleWidth
+        backgroundImageView?.autoresizingMask = UIViewAutoresizing([.FlexibleHeight, .FlexibleWidth])
         backgroundImageView?.contentMode = UIViewContentMode.Center
         
         path = UIBezierPath()
         if let lineWidth = self.lineWidth {
-            path?.lineWidth = CGFloat(self.lineWidth!)
+            path?.lineWidth = CGFloat(lineWidth)
         }
-        path?.lineCapStyle = kCGLineCapRound
+        path?.lineCapStyle = CGLineCap.Round
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         isTouchBegan = true
         breakOutPath()
-        if let touch = touches.first as? UITouch {
+        if let touch = touches.first {
             previousPoint = touch.locationInView(self)
         }
     }
     
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
-        if let bool = isTouchBegan, delegate = self.delegate {
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if let delegate = self.delegate {
             delegate.drawViewDidStartDrawingInView(self)
             isTouchBegan = false
         }
         
-        if let touch = touches.first as? UITouch {
+        if let touch = touches.first {
             oldPoint = previousPoint
             previousPoint = touch.previousLocationInView(self)
             let currentPoint: CGPoint = touch.locationInView(self)
@@ -133,11 +133,11 @@ internal class ButterflyDrawView : UIView {
         }
     }
     
-    override func touchesCancelled(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
         cache()
     }
     
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         cache()
         if let delegate = self.delegate {
             delegate.drawViewDidEndDrawingInView(self)
@@ -148,7 +148,7 @@ internal class ButterflyDrawView : UIView {
     
     private func cache() {
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, 0)
-        layer.renderInContext(UIGraphicsGetCurrentContext())
+        layer.renderInContext(UIGraphicsGetCurrentContext()!)
         backgroundImageView?.image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
     }

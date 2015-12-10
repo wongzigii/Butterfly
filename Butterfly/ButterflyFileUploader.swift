@@ -47,7 +47,7 @@ private struct ButterflyFileUploadInfo {
         if let _name = url.lastPathComponent {
             fileName = _name
         }
-        if let mimeType = mimeType, let _extension = url.pathExtension {
+        if let _extension = url.pathExtension {
             switch _extension.lowercaseString {
             case "jpeg", "jpg":
                 self.mimeType = "image/jpeg"
@@ -74,7 +74,7 @@ private let sharedInstance = ButterflyFileUploader()
 public class ButterflyFileUploader {
     
     /// The response received from the server, if any.
-    public var response: NSHTTPURLResponse? { return self.startUploading(request: self.request)?.response as? NSHTTPURLResponse }
+    public var response: NSHTTPURLResponse? { return self.startUploading(request: self.request)?.response }
     
     // MARK: - Private instance
     private var parameters = [String: String]()
@@ -113,7 +113,7 @@ public class ButterflyFileUploader {
     ///
     /// @param    map          The key and value of map to associate with the file content in the `Content-Disposition` HTTP header.
     ///
-    public func addParametersFrom( #map: [String: String!] ) {
+    public func addParametersFrom( map map: [String: String!] ) {
         for (key,value) in map {
             parameters[key] = value
         }
@@ -138,7 +138,7 @@ public class ButterflyFileUploader {
     ///
     /// @param    parameter    The parameter to associate with the file content in the `Content-Disposition` HTTP header.
     ///
-    public func addHeadersFrom( #map: [String: String!] ) {
+    public func addHeadersFrom( map map: [String: String!] ) {
         for (key,value) in map {
             headers[key] = value
         }
@@ -180,7 +180,7 @@ public class ButterflyFileUploader {
     // MARK: - Private Method
     
     internal func startUploading( request sourceRequest: NSURLRequest? ) -> Request? {
-        var request = sourceRequest!.mutableCopy() as! NSMutableURLRequest
+        let request = sourceRequest!.mutableCopy() as! NSMutableURLRequest
         let boundary = "FileUploader-boundary-\(arc4random())-\(arc4random())"
         request.setValue( "multipart/form-data;boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
         let data = NSMutableData()

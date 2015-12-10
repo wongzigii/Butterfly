@@ -86,7 +86,7 @@ public class ButterflyManager: NSObject, ButterflyViewControllerDelegate {
         /// That would be a great idea to upload your useful application information here manually .
         if let image = imageWillUpload {
             let data: UIImage = image
-            ButterflyFileUploader.sharedUploader.addFileData( UIImageJPEGRepresentation(data,0.8), withName: currentDate(), withMimeType: "image/jpeg" )
+            ButterflyFileUploader.sharedUploader.addFileData( UIImageJPEGRepresentation(data,0.8)!, withName: currentDate(), withMimeType: "image/jpeg" )
         }
         
         ButterflyFileUploader.sharedUploader.upload()
@@ -107,14 +107,14 @@ public class ButterflyManager: NSObject, ButterflyViewControllerDelegate {
         var presented = UIApplication.sharedApplication().keyWindow?.rootViewController
         
         while let vc = presented?.presentedViewController {
-            presented = presented?.presentedViewController
+            presented = vc
         }
         
         let nav = UINavigationController.init(rootViewController: butterflyViewController!)
         nav.modalTransitionStyle = .CrossDissolve
         
         if presented?.isKindOfClass(UINavigationController) == true {
-            let rootvc: UIViewController = (presented as! UINavigationController).viewControllers[0] as! UIViewController
+            let rootvc: UIViewController = (presented as! UINavigationController).viewControllers[0] 
             if rootvc.isKindOfClass(ButterflyViewController) == false {
                 presented?.presentViewController(nav, animated: true, completion: nil)
             }
@@ -145,7 +145,7 @@ public class ButterflyManager: NSObject, ButterflyViewControllerDelegate {
         let layer = UIApplication.sharedApplication().keyWindow?.layer
         let scale = UIScreen.mainScreen().scale
         UIGraphicsBeginImageContextWithOptions(imageSize, false, scale);
-        layer?.renderInContext(UIGraphicsGetCurrentContext())
+        layer?.renderInContext(UIGraphicsGetCurrentContext()!)
         let screenshot = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
@@ -164,7 +164,7 @@ public class ButterflyManager: NSObject, ButterflyViewControllerDelegate {
             imageOrientation = UIImageOrientation.Up
             break
         }
-        let image = UIImage(CGImage: screenshot.CGImage, scale: screenshot.scale, orientation: imageOrientation)
+        let image = UIImage(CGImage: screenshot.CGImage!, scale: screenshot.scale, orientation: imageOrientation)
         return image
     }
     

@@ -29,9 +29,12 @@ import UIKit
 /// Post shaking notification while fetching motion event.
 public extension UIWindow {
     
-    public override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
-        if event.type == UIEventType.Motion && event.subtype == UIEventSubtype.MotionShake {
-            NSNotificationCenter.defaultCenter().postNotificationName(ButterflyDidShakingNotification, object: self)
+    public override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        
+        if let event = event {
+            if event.type == UIEventType.Motion && event.subtype == UIEventSubtype.MotionShake {
+                NSNotificationCenter.defaultCenter().postNotificationName(ButterflyDidShakingNotification, object: self)
+            }
         }
     }
 }

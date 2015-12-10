@@ -79,7 +79,7 @@ public class ButterflyViewController: UIViewController, ButterflyDrawViewDelegat
         
         imageView = UIImageView(frame: UIScreen.mainScreen().bounds)
         imageView?.image = self.image
-        imageView?.autoresizingMask = UIViewAutoresizing.FlexibleTopMargin | UIViewAutoresizing.FlexibleBottomMargin
+        imageView?.autoresizingMask = UIViewAutoresizing([.FlexibleWidth, .FlexibleHeight])
         imageView?.contentMode = UIViewContentMode.Center
         self.view.addSubview(imageView!)
         
@@ -122,8 +122,8 @@ public class ButterflyViewController: UIViewController, ButterflyDrawViewDelegat
             }
         }
         showAlertViewController()
-        println(self.imageWillUpload)
-        println(self.textWillUpload)
+        print(self.imageWillUpload)
+        print(self.textWillUpload)
     }
     
     func showAlertViewController() {
@@ -134,7 +134,7 @@ public class ButterflyViewController: UIViewController, ButterflyDrawViewDelegat
     }
     
     internal func colorChangedButtonPressed(sender: UIButton?) {
-        if (drawView?.lineColor != UIColor.yellowColor) {
+        if drawView?.lineColor != UIColor.yellowColor() {
             drawView?.lineColor = UIColor.yellowColor()
         } else {
             drawView?.lineColor = UIColor.redColor()
@@ -184,7 +184,7 @@ public class ButterflyViewController: UIViewController, ButterflyDrawViewDelegat
     }
     
     public func textViewDidEndEditing(textView: UITextView) {
-        if count(textView.text) == 0 {
+        if textView.text.characters.count == 0 {
             textView.text = "Please enter your feedback."
             textView.textColor = UIColor.lightGrayColor()
             textView.tag = 0
