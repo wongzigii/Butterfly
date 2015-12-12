@@ -1,5 +1,5 @@
 #
-#  Be sure to run `pod spec lint WZSnakeHUD.podspec' to ensure this is a
+#  Be sure to run `pod spec lint Butterfly.podspec' to ensure this is a
 #  valid spec and to remove all comments including this before submitting the spec.
 #
 #  To learn more about Podspec attributes see http://docs.cocoapods.org/specification.html
@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name = 'Butterfly'
-  s.version = '0.3.13'
+  s.version = '0.3.14'
   s.license = 'MIT'
   s.summary = 'Integrate feedback module elegantly.'
   s.authors = { 'Wongzigii' => 'https://github.com/wongzigii' }
@@ -17,5 +17,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
   s.source_files = 'Butterfly/*.{h,swift}'
   s.ios.resource_bundle = { 'Butterfly' => 'Butterfly/Logo/*.png' }
-  s.dependency 'Alamofire', '~> 1.2'
+  s.dependency 'Alamofire'
 end
