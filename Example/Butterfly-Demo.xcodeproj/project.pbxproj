@@ -115,7 +115,8 @@
 				A8E0C1191C1C63D400EC3845 /* ButterflyViewController.swift */,
 				A8E0C11A1C1C63D400EC3845 /* UIWindow+Butterfly.swift */,
 			);
-			path = Butterfly;
+			name = Butterfly;
+			path = ../../Butterfly;
 			sourceTree = "<group>";
 		};
 		E0BA8D8B1B42133F0086D67A = {
@@ -248,6 +249,7 @@
 		E0BA8D8C1B42133F0086D67A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Wongzigii;
 				TargetAttributes = {
