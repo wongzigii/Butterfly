@@ -7,12 +7,11 @@
 //
 
 import UIKit
-import Butterfly
 
 let onLabelText = "Butterfly start listening motion."
 let offLabelText = "Butterfly end listening motion."
 
-class SettingsViewController: UITableViewController, UITableViewDataSource {
+class SettingsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +44,7 @@ class SettingsCell: UITableViewCell {
     @IBOutlet weak var switcher: UISwitch!
     
     @IBAction func swichButtonState(sender: UISwitch) {
-        var delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        //var delegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if sender.on == true {
             ButterflyManager.sharedManager.startListeningShake()
             self.label.text = onLabelText

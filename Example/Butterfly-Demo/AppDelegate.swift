@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Butterfly
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
