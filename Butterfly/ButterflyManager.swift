@@ -61,7 +61,7 @@ public class ButterflyManager: NSObject, ButterflyViewControllerDelegate {
     public func startListeningShake() {
         NSNotificationCenter.defaultCenter().addObserver(
             self,
-            selector: "handleShake:",
+            selector: #selector(handleShake),
             name: ButterflyDidShakingNotification,
             object: nil)
         isListeningShake = true

@@ -93,11 +93,11 @@ public class ButterflyViewController: UIViewController, ButterflyDrawViewDelegat
         bottomBar = ButterflyBottomBar()
         self.view.addSubview(bottomBar!)
         
-        topBar?.sendButton?.addTarget(self, action: "sendButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
-        topBar?.cancelButton?.addTarget(self, action: "cancelButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
-        bottomBar?.colorChangedButton?.addTarget(self, action: "colorChangedButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
-        bottomBar?.descriptionButton?.addTarget(self, action: "inputDescriptionButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
-        bottomBar?.clearPathButton?.addTarget(self, action: "clearButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        topBar?.sendButton?.addTarget(self, action: #selector(sendButtonPressed), forControlEvents: UIControlEvents.TouchUpInside)
+        topBar?.cancelButton?.addTarget(self, action: #selector(cancelButtonPressed), forControlEvents: UIControlEvents.TouchUpInside)
+        bottomBar?.colorChangedButton?.addTarget(self, action: #selector(colorChangedButtonPressed), forControlEvents: UIControlEvents.TouchUpInside)
+        bottomBar?.descriptionButton?.addTarget(self, action: #selector(inputDescriptionButtonPressed), forControlEvents: UIControlEvents.TouchUpInside)
+        bottomBar?.clearPathButton?.addTarget(self, action: #selector(clearButtonPressed), forControlEvents: UIControlEvents.TouchUpInside)
         
         textView.delegate = self
         view.addSubview(self.textView)
