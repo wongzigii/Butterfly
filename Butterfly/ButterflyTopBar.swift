@@ -26,14 +26,15 @@
 
 import UIKit
 
-private let topBarHeight: CGFloat = 64
-private let topBarMarginWidth: CGFloat = 10
-private let topBarButtonWidth: CGFloat = 80
-private let topBarButtonHeight: CGFloat = 30
-
-private let buttonBackgroundColor: UIColor = UIColor(red: 56 / 255, green: 55 / 255, blue: 55 / 255, alpha: 1.0)
-private let barViewBackgroundColor: UIColor = UIColor(red: 46 / 255, green: 45 / 255, blue: 45 / 255, alpha: 1.0)
-private let buttonPressedBackgroundColor: UIColor = UIColor(red: 29 / 255, green: 29 / 255, blue: 29 / 255, alpha: 1.0)
+private struct TopBar {
+    static let Height: CGFloat = 64
+    static let MarginWidth: CGFloat = 10
+    static let ButtonWidth: CGFloat = 80
+    static let ButtonHeight: CGFloat = 30
+    static let ButtonBackgroundColor = UIColor(red: 56 / 255, green: 55 / 255, blue: 55 / 255, alpha: 1.0)
+    static let BarViewBackgroundColor = UIColor(red: 46 / 255, green: 45 / 255, blue: 45 / 255, alpha: 1.0)
+    static let ButtonPressedBackgroundColor = UIColor(red: 29 / 255, green: 29 / 255, blue: 29 / 255, alpha: 1.0)
+}
 
 internal class ButterflyTopBar: UIView {
     
@@ -46,7 +47,7 @@ internal class ButterflyTopBar: UIView {
             x: 0,
             y: 0,
             width: UIScreen.mainScreen().bounds.size.width,
-            height: topBarHeight)
+            height: TopBar.Height)
         self.init(frame: rect)
     }
     
@@ -60,16 +61,16 @@ internal class ButterflyTopBar: UIView {
     }
     
     private func setup() {
-        backgroundColor = barViewBackgroundColor
+        backgroundColor = TopBar.BarViewBackgroundColor
         
-        let centerY: CGFloat = self.frame.size.height / 2 - topBarButtonHeight / 2
+        let centerY: CGFloat = self.frame.size.height / 2 - TopBar.ButtonHeight / 2
         
         cancelButton = UIButton()
         cancelButton?.frame = CGRect(
-            x: topBarMarginWidth,
+            x: TopBar.MarginWidth,
             y: centerY,
-            width: topBarButtonWidth,
-            height: topBarButtonHeight)
+            width: TopBar.ButtonWidth,
+            height: TopBar.ButtonHeight)
         cancelButton?.setTitle("Cancel", forState: UIControlState.Normal)
         cancelButton?.titleLabel?.textAlignment = NSTextAlignment.Center
         cancelButton?.titleLabel?.textColor = UIColor.whiteColor()
@@ -81,10 +82,10 @@ internal class ButterflyTopBar: UIView {
         
         titleLabel = UILabel()
         titleLabel?.frame = CGRect(
-            x: self.frame.width / 2 - topBarButtonWidth / 2,
+            x: self.frame.width / 2 - TopBar.ButtonWidth / 2,
             y: centerY,
-            width: topBarButtonWidth,
-            height: topBarButtonHeight)
+            width: TopBar.ButtonWidth,
+            height: TopBar.ButtonHeight)
         titleLabel?.text = "Feedback"
         titleLabel?.textAlignment = NSTextAlignment.Center
         titleLabel?.textColor = UIColor.whiteColor()
@@ -93,10 +94,10 @@ internal class ButterflyTopBar: UIView {
         
         sendButton = UIButton()
         sendButton?.frame = CGRect(
-            x: self.frame.size.width - topBarMarginWidth - topBarButtonWidth,
+            x: self.frame.size.width - TopBar.MarginWidth - TopBar.ButtonWidth,
             y: centerY,
-            width: topBarButtonWidth,
-            height: topBarButtonHeight)
+            width: TopBar.ButtonWidth,
+            height: TopBar.ButtonHeight)
         sendButton?.setTitle("Send", forState: UIControlState.Normal)
         sendButton?.titleLabel?.textAlignment = NSTextAlignment.Center
         sendButton?.titleLabel?.textColor = UIColor.whiteColor()
@@ -119,8 +120,8 @@ internal class ButterflyTopBar: UIView {
     }
     
     private func setupHighlightedImageForButton() {
-        let highlightedImage: UIImage = generateImageFromUIColor(buttonPressedBackgroundColor)
-        let normalImage: UIImage = generateImageFromUIColor(buttonBackgroundColor)
+        let highlightedImage: UIImage = generateImageFromUIColor(TopBar.ButtonPressedBackgroundColor)
+        let normalImage: UIImage = generateImageFromUIColor(TopBar.ButtonBackgroundColor)
         cancelButton?.setBackgroundImage(highlightedImage, forState: UIControlState.Highlighted)
         sendButton?.setBackgroundImage(highlightedImage, forState: UIControlState.Highlighted)
         cancelButton?.setBackgroundImage(normalImage, forState: UIControlState.Normal)

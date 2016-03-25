@@ -26,22 +26,24 @@
 
 import UIKit
 
-private let textViewCornerRadius: CGFloat = 10
-private let textViewWidthMargin: CGFloat = 10
-private let textViewHeight = UIScreen.mainScreen().bounds.size.height / 5
+private struct TextView {
+    static let CornerRadius: CGFloat = 10
+    static let WidthMargin: CGFloat = 10
+    static let Height = UIScreen.mainScreen().bounds.size.height / 5
+}
 
-internal class ButterflyTextView : UITextView, UITextViewDelegate {
+internal class ButterflyTextView : UITextView {
     
     var isShowing: Bool!
     
     init() {
         let frame = CGRect(
-            x: textViewWidthMargin,
-            y: -textViewHeight,
-            width: UIScreen.mainScreen().bounds.size.width - 2*textViewWidthMargin,
-            height: textViewHeight)
+            x: TextView.WidthMargin,
+            y: -TextView.Height,
+            width: UIScreen.mainScreen().bounds.size.width - 2 * TextView.WidthMargin,
+            height: TextView.Height)
         super.init(frame: frame, textContainer: nil)
-        layer.cornerRadius = textViewCornerRadius
+        layer.cornerRadius = TextView.CornerRadius
         clipsToBounds = true
         isShowing = false
     }

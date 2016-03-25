@@ -34,7 +34,7 @@ protocol ButterflyViewControllerDelegate: class {
 }
 
 /// This is the viewController combined Butterfly modules.
-public class ButterflyViewController: UIViewController, ButterflyDrawViewDelegate, UITextViewDelegate {
+public class ButterflyViewController: UIViewController {
     
     /// The image reported by users that will upload to server.
     internal var imageWillUpload: UIImage?
@@ -150,9 +150,15 @@ public class ButterflyViewController: UIViewController, ButterflyDrawViewDelegat
         drawView?.clear()
     }
     
+    /// MARK: - deinit
     
-    // MARK: - ButterflyDrawViewDelegate
-    
+    deinit{
+        drawView?.delegate = nil
+    }
+}
+
+extension ButterflyViewController: ButterflyDrawViewDelegate {
+
     func drawViewDidEndDrawingInView(drawView: ButterflyDrawView?) {
         topBar?.show()
         bottomBar?.show()
@@ -162,9 +168,10 @@ public class ButterflyViewController: UIViewController, ButterflyDrawViewDelegat
         topBar?.hide()
         bottomBar?.hide()
     }
-    
-    /// MARK: - UITextViewDelegate
-    ///
+}
+
+extension ButterflyViewController: UITextViewDelegate {
+
     /// Placeholder trick
     ///
     /// Changed if statements to compare tags rather than text. If the user deleted their text it was possible to also
@@ -201,11 +208,5 @@ public class ButterflyViewController: UIViewController, ButterflyDrawViewDelegat
             return false
         }
         return true
-    }
-    
-    /// MARK: - deinit
-    
-    deinit{
-        drawView?.delegate = nil
     }
 }

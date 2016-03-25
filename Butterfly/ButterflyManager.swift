@@ -26,14 +26,16 @@
 
 import UIKit
 
-public let ButterflyDidShakingNotification = "com.wongzigii.Butterfly.ShakingNotification"
+struct Notification {
+    static let ButterflyDidShakingNotification = "com.wongzigii.Butterfly.ShakingNotification"
+}
 
 private let instance = ButterflyManager()
 
 
 ///  Main manager class of Butterfly
 
-public class ButterflyManager: NSObject, ButterflyViewControllerDelegate {
+public class ButterflyManager: NSObject {
     
     /// You can access instance variable `imageWillUpload` directly.
     public var imageWillUpload: UIImage? {
@@ -62,7 +64,7 @@ public class ButterflyManager: NSObject, ButterflyViewControllerDelegate {
         NSNotificationCenter.defaultCenter().addObserver(
             self,
             selector: #selector(handleShake),
-            name: ButterflyDidShakingNotification,
+            name: Notification.ButterflyDidShakingNotification,
             object: nil)
         isListeningShake = true
     }
@@ -73,32 +75,15 @@ public class ButterflyManager: NSObject, ButterflyViewControllerDelegate {
     public func stopListeningShake() {
         NSNotificationCenter.defaultCenter().removeObserver(
             self,
-            name: ButterflyDidShakingNotification,
+            name: Notification.ButterflyDidShakingNotification,
             object: nil)
         isListeningShake = false
     }
     
-    /// ButterflyViewController delegate method. Will be invoked when send button pressed. You may want to implement this method to handle the image.
-    ///
-    func ButterflyViewControllerDidPressedSendButton(drawView: ButterflyDrawView?) {
-        /// NOTE: Custom this method for further uploading.
-        ///
-        /// That would be a great idea to upload your useful application information here manually .
-        if let image = imageWillUpload {
-            let data: UIImage = image
-            ButterflyFileUploader.sharedUploader.addFileData( UIImageJPEGRepresentation(data,0.8)!, withName: currentDate(), withMimeType: "image/jpeg" )
-        }
-        
-        ButterflyFileUploader.sharedUploader.upload()
-        print("ButterflyViewController 's delegate method [-ButterflyViewControllerDidEndReporting] invoked\n")
-    }
-    
-    
-    
     /// Begin handling shake event.
     func handleShake(notification: NSNotification) {
         
-        let screenshot = takeAScreenshot()
+        let screenshot = takeScreenshot()
         
         butterflyViewController = ButterflyViewController()
         butterflyViewController?.delegate = self
@@ -136,9 +121,8 @@ public class ButterflyManager: NSObject, ButterflyViewControllerDelegate {
     //
     // MARK: - Take screenshot
     //
-    // http://stackoverflow.com/questions/7964153/ios-whats-the-fastest-most-performant-way-to-make-a-screenshot-programaticall/8017292#8017292
     
-    internal func takeAScreenshot() -> UIImage? {
+    internal func takeScreenshot() -> UIImage? {
         
         let orientation = UIApplication.sharedApplication().statusBarOrientation
         let imageSize: CGSize = UIScreen.mainScreen().bounds.size
@@ -171,7 +155,25 @@ public class ButterflyManager: NSObject, ButterflyViewControllerDelegate {
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(
             self,
-            name: ButterflyDidShakingNotification,
+            name: Notification.ButterflyDidShakingNotification,
             object: nil)
+    }
+}
+
+extension ButterflyManager: ButterflyViewControllerDelegate {
+    
+    /// NOTE: Custom this method for further uploading.
+    ///
+    /// That would be a great idea to upload your useful application information here manually .
+    
+    func ButterflyViewControllerDidPressedSendButton(drawView: ButterflyDrawView?) {
+
+        if let image = imageWillUpload {
+            let data: UIImage = image
+            ButterflyFileUploader.sharedUploader.addFileData( UIImageJPEGRepresentation(data,0.8)!, withName: currentDate(), withMimeType: "image/jpeg" )
+        }
+        
+        ButterflyFileUploader.sharedUploader.upload()
+        print("ButterflyViewController 's delegate method [-ButterflyViewControllerDidEndReporting] invoked\n")
     }
 }
