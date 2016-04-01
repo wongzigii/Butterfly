@@ -113,7 +113,7 @@ public class ButterflyViewController: UIViewController {
     public func sendButtonPressed(sender: UIButton?) {
         drawView?.enable()
         delegate?.ButterflyViewControllerDidPressedSendButton(drawView)
-        imageWillUpload = ButterflyManager.sharedManager.takeAScreenshot()
+        imageWillUpload = ButterflyManager.sharedManager.takeScreenshot()
         textWillUpload = textView.text
         
         if let textViewIsShowing = textView.isShowing {

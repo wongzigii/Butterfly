@@ -33,7 +33,7 @@ public extension UIWindow {
         
         if let event = event {
             if event.type == UIEventType.Motion && event.subtype == UIEventSubtype.MotionShake {
-                NSNotificationCenter.defaultCenter().postNotificationName(ButterflyDidShakingNotification, object: self)
+                NSNotificationCenter.defaultCenter().postNotificationName(Notification.ButterflyDidShakingNotification, object: self)
             }
         }
     }
