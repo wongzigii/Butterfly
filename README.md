@@ -64,9 +64,9 @@ func application(application: UIApplication, didFinishLaunchingWithOptions launc
 }
 ````
 
-### How it works for uploading
+### Upload
 
-`ButterflyViewController` delegate method invoked when send button pressed. You may want to implement this method to handle the image. However, in Xcode Version 6.4 (6E35b) with Swift 2.0, there currently seems to be no way to call static (class) methods defined in a protocol (in pure Swift).
+`ButterflyViewController` protocol method invoked when send button pressed. You can conform this protocol to handle the image uploading. However, in Xcode Version 6.4 (6E35b) with Swift 2.0, there currently seems to be no way to call static (class) methods defined in a protocol (in pure Swift).
 Considering this issue, Butterfly included the `ButterflyFileUploader` to handle uploading stuff in v0.3.13. The `ButterflyFileUploader` class is an encapsulation under [Alamofire](https://github.com/Alamofire/Alamofire) 's upload API.
 
 ````swift
