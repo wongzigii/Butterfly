@@ -83,8 +83,6 @@ func ButterflyViewControllerDidPressedSendButton(drawView: ButterflyDrawView?) {
 
 ### Configuration of ButterflyFileUploader
 
-**SereverURLString**
-
 ````swift
 // @discussion Make sure your serverURLString is valid before a further application. 
 // Call `setServerURLString` to replace the default "http://myserver.com/uploadFile" with your own's.
@@ -98,9 +96,7 @@ public var serverURLString: String? = "http://myserver.com/uploadFile"
 public func setServerURLString( URL: String ) {
     serverURLString = URL
 }
-````
 
-````swift
 ///
 /// Add one file or multiple files with file URL to uploader.
 ///
@@ -113,9 +109,7 @@ public func setServerURLString( URL: String ) {
 public func addFileURL( url: NSURL, withName name: String, withMimeType mimeType: String? = nil ) {
     files.append( ButterflyFileUploadInfo( name: name, withFileURL: url, withMimeType: mimeType ) )
 }
-````
 
-````swift
 ///
 /// Add one file or multiple files with NSData to uploader.
 ///
