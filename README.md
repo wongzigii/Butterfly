@@ -8,7 +8,7 @@
 <img src="https://img.shields.io/cocoapods/p/Butterfly.svg?style=flat">
 </p>
 
-Butterfly is a **lightweight** library for integrating bug-report and feedback features with shake-motion event elegantly. 
+Butterfly is a **lightweight** library for integrating bug-report and feedback features with shake-motion event. 
 
 ## Goals of this project
 
