@@ -27,7 +27,7 @@
 import UIKit
 
 private struct BottomBar {
-    static let Height: CGFloat = 44
+    static let Height: CGFloat = 44 * (UIScreen.main.bounds.height / 667.0)
     static let ButtonSize: CGFloat = 25
     static let ButtonMarginWidth: CGFloat = 10
     static let BackgroundColor: UIColor = UIColor(red: 46 / 255, green: 45 / 255, blue: 45 / 255, alpha: 1.0)
