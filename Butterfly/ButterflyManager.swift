@@ -35,23 +35,23 @@ private let instance = ButterflyManager()
 
 ///  Main manager class of Butterfly
 
-public class ButterflyManager: NSObject {
+open class ButterflyManager: NSObject {
     
     /// You can access instance variable `imageWillUpload` directly.
-    public var imageWillUpload: UIImage? {
+    open var imageWillUpload: UIImage? {
         return self.butterflyViewController?.imageWillUpload
     }
     
     /// Or instance variable `textWillUploader`.
-    public var textWillUpload: String? {
+    open var textWillUpload: String? {
         return self.butterflyViewController?.textWillUpload
     }
     
     /// Manager is listening shake event or not.
-    public var isListeningShake: Bool?
+    open var isListeningShake: Bool?
     
     /// Shared manager used by the extension across Butterfly.
-    public class var sharedManager: ButterflyManager {
+    open class var sharedManager: ButterflyManager {
         return instance
     }
     
@@ -60,11 +60,11 @@ public class ButterflyManager: NSObject {
     
     /// Register and start listening shake event.
     /// Register this method in AppDelegate will listen all motions during the whole application's life cycle.
-    public func startListeningShake() {
-        NSNotificationCenter.defaultCenter().addObserver(
+    open func startListeningShake() {
+        NotificationCenter.default.addObserver(
             self,
             selector: #selector(handleShake),
-            name: Notification.ButterflyDidShakingNotification,
+            name: NSNotification.Name(rawValue: Notification.ButterflyDidShakingNotification),
             object: nil)
         isListeningShake = true
     }
@@ -72,16 +72,16 @@ public class ButterflyManager: NSObject {
     
     /// Unregister and stop listening shake event.
     /// Optional: you can just listen the specific one (viewController) you want.
-    public func stopListeningShake() {
-        NSNotificationCenter.defaultCenter().removeObserver(
+    open func stopListeningShake() {
+        NotificationCenter.default.removeObserver(
             self,
-            name: Notification.ButterflyDidShakingNotification,
+            name: NSNotification.Name(rawValue: Notification.ButterflyDidShakingNotification),
             object: nil)
         isListeningShake = false
     }
     
     /// Begin handling shake event.
-    func handleShake(notification: NSNotification) {
+    @objc func handleShake(_ notification: Foundation.Notification) {
         
         let screenshot = takeScreenshot()
         
@@ -89,32 +89,32 @@ public class ButterflyManager: NSObject {
         butterflyViewController?.delegate = self
         butterflyViewController?.image = screenshot
         
-        var presented = UIApplication.sharedApplication().keyWindow?.rootViewController
+        var presented = UIApplication.shared.keyWindow?.rootViewController
         
         while let vc = presented?.presentedViewController {
             presented = vc
         }
         
         let nav = UINavigationController.init(rootViewController: butterflyViewController!)
-        nav.modalTransitionStyle = .CrossDissolve
+        nav.modalTransitionStyle = .crossDissolve
         
-        if presented?.isKindOfClass(UINavigationController) == true {
+        if presented?.isKind(of: UINavigationController.self) == true {
             let rootvc: UIViewController = (presented as! UINavigationController).viewControllers[0] 
-            if rootvc.isKindOfClass(ButterflyViewController) == false {
-                presented?.presentViewController(nav, animated: true, completion: nil)
+            if rootvc.isKind(of: ButterflyViewController.self) == false {
+                presented?.present(nav, animated: true, completion: nil)
             }
-        } else if presented?.isKindOfClass(ButterflyViewController) == false {
-            presented?.presentViewController(nav, animated: true, completion: nil)
+        } else if presented?.isKind(of: ButterflyViewController.self) == false {
+            presented?.present(nav, animated: true, completion: nil)
         }
     }
     
-    private func currentDate() -> String! {
-        let sec = NSDate().timeIntervalSinceNow
-        let currentDate = NSDate(timeIntervalSinceNow: sec)
+    fileprivate func currentDate() -> String! {
+        let sec = Date().timeIntervalSinceNow
+        let currentDate = Date(timeIntervalSinceNow: sec)
         
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy/MM/dd HH/mm/ss"
-        let string = dateFormatter.stringFromDate(currentDate)
+        let string = dateFormatter.string(from: currentDate)
         return string
     }
     
@@ -124,38 +124,38 @@ public class ButterflyManager: NSObject {
     
     internal func takeScreenshot() -> UIImage? {
         
-        let orientation = UIApplication.sharedApplication().statusBarOrientation
-        let imageSize: CGSize = UIScreen.mainScreen().bounds.size
-        let layer = UIApplication.sharedApplication().keyWindow?.layer
-        let scale = UIScreen.mainScreen().scale
+        let orientation = UIApplication.shared.statusBarOrientation
+        let imageSize: CGSize = UIScreen.main.bounds.size
+        let layer = UIApplication.shared.keyWindow?.layer
+        let scale = UIScreen.main.scale
         UIGraphicsBeginImageContextWithOptions(imageSize, false, scale);
-        layer?.renderInContext(UIGraphicsGetCurrentContext()!)
+        layer?.render(in: UIGraphicsGetCurrentContext()!)
         let screenshot = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
         var imageOrientation: UIImageOrientation
         switch orientation {
-        case .LandscapeLeft:
-            imageOrientation = UIImageOrientation.Left
+        case .landscapeLeft:
+            imageOrientation = UIImageOrientation.left
             break
-        case .LandscapeRight:
-            imageOrientation = UIImageOrientation.Right
+        case .landscapeRight:
+            imageOrientation = UIImageOrientation.right
             break
-        case .PortraitUpsideDown:
-            imageOrientation = UIImageOrientation.Down
+        case .portraitUpsideDown:
+            imageOrientation = UIImageOrientation.down
             break
-        case .Unknown, .Portrait:
-            imageOrientation = UIImageOrientation.Up
+        case .unknown, .portrait:
+            imageOrientation = UIImageOrientation.up
             break
         }
-        let image = UIImage(CGImage: screenshot.CGImage!, scale: screenshot.scale, orientation: imageOrientation)
+        let image = UIImage(cgImage: (screenshot?.cgImage!)!, scale: (screenshot?.scale)!, orientation: imageOrientation)
         return image
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(
+        NotificationCenter.default.removeObserver(
             self,
-            name: Notification.ButterflyDidShakingNotification,
+            name: NSNotification.Name(rawValue: Notification.ButterflyDidShakingNotification),
             object: nil)
     }
 }
@@ -166,7 +166,7 @@ extension ButterflyManager: ButterflyViewControllerDelegate {
     ///
     /// That would be a great idea to upload your useful application information here manually .
     
-    func ButterflyViewControllerDidPressedSendButton(drawView: ButterflyDrawView?) {
+    func ButterflyViewControllerDidPressedSendButton(_ drawView: ButterflyDrawView?) {
 
         if let image = imageWillUpload {
             let data: UIImage = image
