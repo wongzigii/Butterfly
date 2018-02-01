@@ -27,7 +27,7 @@
 import UIKit
 
 private struct TopBar {
-    static let Height: CGFloat = 64
+    static let Height: CGFloat = 75 * (UIScreen.main.bounds.height / 667.0)
     static let MarginWidth: CGFloat = 10
     static let ButtonWidth: CGFloat = 80
     static let ButtonHeight: CGFloat = 30
