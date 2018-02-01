@@ -33,10 +33,10 @@ private struct ButterflyFileUploadInfo {
     var name: String?
     var mimeType: String?
     var fileName: String?
-    var url: NSURL?
-    var data: NSData?
+    var url: URL?
+    var data: Data?
     
-    init( name: String, withFileURL url: NSURL, withMimeType mimeType: String? = nil ) {
+    init( name: String, withFileURL url: URL, withMimeType mimeType: String? = nil ) {
         self.name = name
         self.url = url
         self.fileName = name
@@ -44,11 +44,15 @@ private struct ButterflyFileUploadInfo {
         if let mimeType = mimeType {
             self.mimeType = mimeType
         }
-        if let _name = url.lastPathComponent {
+        
+        let _name = url.lastPathComponent
+        // if let _name = url.lastPathComponent {
             fileName = _name
-        }
-        if let _extension = url.pathExtension {
-            switch _extension.lowercaseString {
+        // }
+        
+        let _extension = url.pathExtension
+        // if let _extension = url.pathExtension {
+            switch _extension.lowercased() {
             case "jpeg", "jpg":
                 self.mimeType = "image/jpeg"
                 
@@ -58,10 +62,10 @@ private struct ButterflyFileUploadInfo {
             default:
                 self.mimeType = "application/octet-stream"
             }
-        }
+        // }
     }
     
-    init( name: String, withData data: NSData, withMimeType mimeType: String ) {
+    init( name: String, withData data: Data, withMimeType mimeType: String ) {
         self.name = name
         self.data = data
         self.fileName = name
@@ -71,30 +75,30 @@ private struct ButterflyFileUploadInfo {
 
 private let sharedInstance = ButterflyFileUploader()
 
-public class ButterflyFileUploader {
+open class ButterflyFileUploader {
     
     /// The response received from the server, if any.
-    public var response: NSHTTPURLResponse? { return self.startUploading(request: self.request)?.response }
+    open var response: HTTPURLResponse? { return self.startUploading(request: self.request)?.response }
     
     // MARK: - Private instance
-    private var parameters = [String: String]()
-    private var files = [ButterflyFileUploadInfo]()
-    private var headers = [String: String]()
+    fileprivate var parameters = [String: String]()
+    fileprivate var files = [ButterflyFileUploadInfo]()
+    fileprivate var headers = [String: String]()
     
     // @discussion Make sure your serverURLString is valid before a further application.
     //             Call `setServerURLString` to replace the default "http://myserver.com/uploadFile" with your own's.
-    public var serverURLString: String? = "http://myserver.com/uploadFile"
+    open var serverURLString: String? = "http://myserver.com/uploadFile"
     
     ///
     /// Set uploader 's server URL
     ///
     /// @param     URL         The server URL.
     ///
-    public func setServerURLString( URL: String ) {
+    open func setServerURLString( _ URL: String ) {
         serverURLString = URL
     }
     
-    public class var sharedUploader: ButterflyFileUploader {
+    open class var sharedUploader: ButterflyFileUploader {
         return sharedInstance;
     }
     
@@ -104,7 +108,7 @@ public class ButterflyFileUploader {
     /// @param    value        The value to associate with the file content in the `Content-Disposition` HTTP header.
     /// @param    parameter    The parameter to associate with the file content in the `Content-Disposition` HTTP header.
     ///
-    public func setValue( value: String!, forParameter parameter: String ) {
+    open func setValue( _ value: String!, forParameter parameter: String ) {
         parameters[parameter] = value
     }
     
@@ -113,7 +117,7 @@ public class ButterflyFileUploader {
     ///
     /// @param    map          The key and value of map to associate with the file content in the `Content-Disposition` HTTP header.
     ///
-    public func addParametersFrom( map map: [String: String!] ) {
+    open func addParametersFrom( map: [String: String?] ) {
         for (key,value) in map {
             parameters[key] = value
         }
@@ -127,7 +131,7 @@ public class ButterflyFileUploader {
     /// @param    value        The header field value.
     /// @param    header       The header field name (case-insensitive).
     ///
-    public func setValue( value: String!, forHeader header: String ) {
+    open func setValue( _ value: String!, forHeader header: String ) {
         headers[header] = value
     }
     
@@ -138,7 +142,7 @@ public class ButterflyFileUploader {
     ///
     /// @param    parameter    The parameter to associate with the file content in the `Content-Disposition` HTTP header.
     ///
-    public func addHeadersFrom( map map: [String: String!] ) {
+    open func addHeadersFrom( map: [String: String?] ) {
         for (key,value) in map {
             headers[key] = value
         }
@@ -153,7 +157,7 @@ public class ButterflyFileUploader {
     ///
     /// @param    mimeType     The MIME type to associate with the data in the `Content-Type` HTTP header.
     ///
-    public func addFileURL( url: NSURL, withName name: String, withMimeType mimeType: String? = nil ) {
+    open func addFileURL( _ url: URL, withName name: String, withMimeType mimeType: String? = nil ) {
         files.append( ButterflyFileUploadInfo( name: name, withFileURL: url, withMimeType: mimeType ) )
     }
     
@@ -166,24 +170,24 @@ public class ButterflyFileUploader {
     ///
     /// @param    mimeType     The MIME type to associate with the data in the `Content-Type` HTTP header.
     ///
-    public func addFileData( data: NSData, withName name: String, withMimeType mimeType: String = "application/octet-stream" ) {
+    open func addFileData( _ data: Data, withName name: String, withMimeType mimeType: String = "application/octet-stream" ) {
         files.append( ButterflyFileUploadInfo( name: name, withData: data, withMimeType: mimeType ) )
     }
     
     lazy var request: NSMutableURLRequest = {
         var urlRequest = NSMutableURLRequest()
-        urlRequest.HTTPMethod = "POST"
-        urlRequest.URL = NSURL(string: ButterflyFileUploader.sharedUploader.serverURLString!)
+        urlRequest.httpMethod = "POST"
+        urlRequest.url = URL(string: ButterflyFileUploader.sharedUploader.serverURLString!)
         return urlRequest
         }()
     
     // MARK: - Private Method
     
     internal func startUploading( request sourceRequest: NSURLRequest? ) -> Request? {
-        let request = sourceRequest!.mutableCopy() as! NSMutableURLRequest
+        var request = sourceRequest!.mutableCopy() as! URLRequest
         let boundary = "FileUploader-boundary-\(arc4random())-\(arc4random())"
         request.setValue( "multipart/form-data;boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-        let data = NSMutableData()
+        var data = Data()
         
         for (name, value) in headers {
             request.setValue(value, forHTTPHeaderField: name)
@@ -191,29 +195,29 @@ public class ButterflyFileUploader {
         
         // Amazon S3 (probably others) wont take parameters after files, so we put them first
         for (key, value) in parameters {
-            data.appendData("\r\n--\(boundary)\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-            data.appendData("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n\(value)".dataUsingEncoding(NSUTF8StringEncoding)!)
+            data.append("\r\n--\(boundary)\r\n".data(using: String.Encoding.utf8)!)
+            data.append("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n\(value)".data(using: String.Encoding.utf8)!)
         }
         
         for fileUploadInfo in files {
-            data.appendData( "\r\n--\(boundary)\r\n".dataUsingEncoding(NSUTF8StringEncoding)! )
-            data.appendData( "Content-Disposition: form-data; name=\"\(fileUploadInfo.name)\"; filename=\"\(fileUploadInfo.fileName)\"\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
-            data.appendData( "Content-Type: \(fileUploadInfo.mimeType)\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+            data.append( "\r\n--\(boundary)\r\n".data(using: String.Encoding.utf8)! )
+            data.append( "Content-Disposition: form-data; name=\"\(String(describing: fileUploadInfo.name))\"; filename=\"\(String(describing: fileUploadInfo.fileName))\"\r\n".data(using: String.Encoding.utf8)!)
+            data.append( "Content-Type: \(String(describing: fileUploadInfo.mimeType) )\r\n\r\n".data(using: String.Encoding.utf8)!)
             if let fileData = fileUploadInfo.data {
-                data.appendData( fileData )
+                data.append( fileData )
             }
-            else if let url = fileUploadInfo.url, let fileData = NSData(contentsOfURL: url) {
-                data.appendData( fileData )
+            else if let url = fileUploadInfo.url, let fileData = try? Data(contentsOf: url) {
+                data.append( fileData )
             }
             else { // ToDo: report error
                 return nil
             }
         }
         
-        data.appendData("\r\n--\(boundary)--\r\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+        data.append("\r\n--\(boundary)--\r\n".data(using: String.Encoding.utf8)!)
         
         /// Start uploading
-        return Alamofire.upload( request, data: data )
+        return Alamofire.upload( data, with: request )
     }
     
     internal func upload() {
