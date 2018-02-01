@@ -35,12 +35,12 @@ protocol ButterflyDrawViewDelegate: class {
     ///
     /// Called when start drawing in ButterflyDrawView
     ///
-    func drawViewDidStartDrawingInView(drawView: ButterflyDrawView?)
+    func drawViewDidStartDrawingInView(_ drawView: ButterflyDrawView?)
     
     ///
     /// Called when end drawing in ButterflyDrawView
     ///
-    func drawViewDidEndDrawingInView(drawView: ButterflyDrawView?)
+    func drawViewDidEndDrawingInView(_ drawView: ButterflyDrawView?)
 }
 
 ///
@@ -58,25 +58,25 @@ internal class ButterflyDrawView : UIView {
     
     var isTouchBegan: Bool?
     
-    private var backgroundImageView: UIImageView?
+    fileprivate var backgroundImageView: UIImageView?
     
-    private var path: UIBezierPath?
+    fileprivate var path: UIBezierPath?
     
-    private var previousPoint: CGPoint?
+    fileprivate var previousPoint: CGPoint?
     
-    private var oldPoint: CGPoint?
+    fileprivate var oldPoint: CGPoint?
     
     override init(frame: CGRect) {
-        super.init(frame: UIScreen.mainScreen().bounds)
+        super.init(frame: UIScreen.main.bounds)
         lineWidth = 3.0
-        lineColor = UIColor.redColor()
+        lineColor = UIColor.red
         setup()
     }
     
     // Use this initializer to custom lineWidth and lineColor if need.
     
     convenience init(lineWidth: Float, lineColor: UIColor) {
-        self.init(frame: UIScreen.mainScreen().bounds)
+        self.init(frame: UIScreen.main.bounds)
         self.lineWidth = lineWidth
         self.lineColor = lineColor
     }
@@ -85,30 +85,30 @@ internal class ButterflyDrawView : UIView {
         fatalError("init(coder:) has not been implemented\n")
     }
     
-    private func setup() {
-        backgroundColor = UIColor.clearColor()
+    fileprivate func setup() {
+        backgroundColor = UIColor.clear
         
         backgroundImageView = UIImageView(frame: self.bounds)
         addSubview(backgroundImageView!)
-        backgroundImageView?.autoresizingMask = UIViewAutoresizing([.FlexibleHeight, .FlexibleWidth])
-        backgroundImageView?.contentMode = UIViewContentMode.Center
+        backgroundImageView?.autoresizingMask = UIViewAutoresizing([.flexibleHeight, .flexibleWidth])
+        backgroundImageView?.contentMode = UIViewContentMode.center
         
         path = UIBezierPath()
         if let lineWidth = self.lineWidth {
             path?.lineWidth = CGFloat(lineWidth)
         }
-        path?.lineCapStyle = CGLineCap.Round
+        path?.lineCapStyle = CGLineCap.round
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         isTouchBegan = true
         breakOutPath()
         if let touch = touches.first {
-            previousPoint = touch.locationInView(self)
+            previousPoint = touch.location(in: self)
         }
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let delegate = self.delegate {
             delegate.drawViewDidStartDrawingInView(self)
             isTouchBegan = false
@@ -116,8 +116,8 @@ internal class ButterflyDrawView : UIView {
         
         if let touch = touches.first {
             oldPoint = previousPoint
-            previousPoint = touch.previousLocationInView(self)
-            let currentPoint: CGPoint = touch.locationInView(self)
+            previousPoint = touch.previousLocation(in: self)
+            let currentPoint: CGPoint = touch.location(in: self)
             
             let midPoint1 = CGPoint(
                 x: (oldPoint!.x + previousPoint!.x) / 2,
@@ -126,18 +126,18 @@ internal class ButterflyDrawView : UIView {
                 x: (previousPoint!.x + currentPoint.x) / 2,
                 y: (previousPoint!.y + currentPoint.y) / 2)
             
-            path?.moveToPoint(midPoint1)
-            path?.addQuadCurveToPoint(midPoint2, controlPoint: previousPoint!)
+            path?.move(to: midPoint1)
+            path?.addQuadCurve(to: midPoint2, controlPoint: previousPoint!)
             
             setNeedsDisplay()
         }
     }
     
-    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         cache()
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         cache()
         if let delegate = self.delegate {
             delegate.drawViewDidEndDrawingInView(self)
@@ -146,23 +146,23 @@ internal class ButterflyDrawView : UIView {
     
     /// Cache for the current image.
     
-    private func cache() {
+    fileprivate func cache() {
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, 0)
-        layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        layer.render(in: UIGraphicsGetCurrentContext()!)
         backgroundImageView?.image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
     }
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
-        CGContextSetAllowsAntialiasing(context, true)
-        CGContextSetShouldAntialias(context, true)
+        context?.setAllowsAntialiasing(true)
+        context?.setShouldAntialias(true)
         
         lineColor?.setStroke()
         path?.stroke()
     }
     
-    private func breakOutPath() {
+    fileprivate func breakOutPath() {
         path?.removeAllPoints()
     }
     
@@ -173,11 +173,11 @@ internal class ButterflyDrawView : UIView {
     }
     
     func disable() {
-        self.userInteractionEnabled = false
+        self.isUserInteractionEnabled = false
     }
     
     func enable() {
-        self.userInteractionEnabled = true
+        self.isUserInteractionEnabled = true
     }
     
     deinit {
