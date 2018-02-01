@@ -46,7 +46,7 @@ internal class ButterflyTopBar: UIView {
         let rect = CGRect(
             x: 0,
             y: 0,
-            width: UIScreen.mainScreen().bounds.size.width,
+            width: UIScreen.main.bounds.size.width,
             height: TopBar.Height)
         self.init(frame: rect)
     }
@@ -60,7 +60,7 @@ internal class ButterflyTopBar: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setup() {
+    fileprivate func setup() {
         backgroundColor = TopBar.BarViewBackgroundColor
         
         let centerY: CGFloat = self.frame.size.height / 2 - TopBar.ButtonHeight / 2
@@ -71,13 +71,13 @@ internal class ButterflyTopBar: UIView {
             y: centerY,
             width: TopBar.ButtonWidth,
             height: TopBar.ButtonHeight)
-        cancelButton?.setTitle("Cancel", forState: UIControlState.Normal)
-        cancelButton?.titleLabel?.textAlignment = NSTextAlignment.Center
-        cancelButton?.titleLabel?.textColor = UIColor.whiteColor()
+        cancelButton?.setTitle("Cancel", for: UIControlState())
+        cancelButton?.titleLabel?.textAlignment = NSTextAlignment.center
+        cancelButton?.titleLabel?.textColor = UIColor.white
         cancelButton?.layer.cornerRadius = 5
         cancelButton?.clipsToBounds = true
-        cancelButton?.backgroundColor = UIColor.clearColor()
-        cancelButton?.titleLabel?.font = UIFont.boldSystemFontOfSize(15)
+        cancelButton?.backgroundColor = UIColor.clear
+        cancelButton?.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         self.addSubview(cancelButton!)
         
         titleLabel = UILabel()
@@ -87,9 +87,9 @@ internal class ButterflyTopBar: UIView {
             width: TopBar.ButtonWidth,
             height: TopBar.ButtonHeight)
         titleLabel?.text = "Feedback"
-        titleLabel?.textAlignment = NSTextAlignment.Center
-        titleLabel?.textColor = UIColor.whiteColor()
-        titleLabel?.font = UIFont.boldSystemFontOfSize(17)
+        titleLabel?.textAlignment = NSTextAlignment.center
+        titleLabel?.textColor = UIColor.white
+        titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
         self.addSubview(titleLabel!)
         
         sendButton = UIButton()
@@ -98,41 +98,41 @@ internal class ButterflyTopBar: UIView {
             y: centerY,
             width: TopBar.ButtonWidth,
             height: TopBar.ButtonHeight)
-        sendButton?.setTitle("Send", forState: UIControlState.Normal)
-        sendButton?.titleLabel?.textAlignment = NSTextAlignment.Center
-        sendButton?.titleLabel?.textColor = UIColor.whiteColor()
-        sendButton?.backgroundColor = UIColor.clearColor()
+        sendButton?.setTitle("Send", for: UIControlState())
+        sendButton?.titleLabel?.textAlignment = NSTextAlignment.center
+        sendButton?.titleLabel?.textColor = UIColor.white
+        sendButton?.backgroundColor = UIColor.clear
         sendButton?.layer.cornerRadius = 5
         sendButton?.clipsToBounds = true
-        sendButton?.titleLabel?.font = UIFont.boldSystemFontOfSize(15)
+        sendButton?.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         self.addSubview(sendButton!)
     }
     
-    private func generateImageFromUIColor(color: UIColor?) -> UIImage! {
-        let rect = CGRectMake(0, 0, 1, 1)
+    fileprivate func generateImageFromUIColor(_ color: UIColor?) -> UIImage! {
+        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
         UIGraphicsBeginImageContext(rect.size)
-        let context: CGContextRef? = UIGraphicsGetCurrentContext()
-        CGContextSetFillColorWithColor(context, color!.CGColor)
-        CGContextFillRect(context, rect)
-        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        let context: CGContext? = UIGraphicsGetCurrentContext()
+        context?.setFillColor(color!.cgColor)
+        context?.fill(rect)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         return image
     }
     
-    private func setupHighlightedImageForButton() {
+    fileprivate func setupHighlightedImageForButton() {
         let highlightedImage: UIImage = generateImageFromUIColor(TopBar.ButtonPressedBackgroundColor)
         let normalImage: UIImage = generateImageFromUIColor(TopBar.ButtonBackgroundColor)
-        cancelButton?.setBackgroundImage(highlightedImage, forState: UIControlState.Highlighted)
-        sendButton?.setBackgroundImage(highlightedImage, forState: UIControlState.Highlighted)
-        cancelButton?.setBackgroundImage(normalImage, forState: UIControlState.Normal)
-        sendButton?.setBackgroundImage(normalImage, forState: UIControlState.Normal)
+        cancelButton?.setBackgroundImage(highlightedImage, for: UIControlState.highlighted)
+        sendButton?.setBackgroundImage(highlightedImage, for: UIControlState.highlighted)
+        cancelButton?.setBackgroundImage(normalImage, for: UIControlState())
+        sendButton?.setBackgroundImage(normalImage, for: UIControlState())
     }
     
     func hide() {
-        self.hidden = true
+        self.isHidden = true
     }
     
     func show() {
-        self.hidden = false
+        self.isHidden = false
     }
 }
