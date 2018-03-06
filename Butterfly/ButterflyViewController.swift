@@ -30,11 +30,11 @@ import UIKit
 
 protocol ButterflyViewControllerDelegate: class {
     
-    func ButterflyViewControllerDidPressedSendButton(drawView: ButterflyDrawView?)
+    func ButterflyViewControllerDidPressedSendButton(_ drawView: ButterflyDrawView?)
 }
 
 /// This is the viewController combined Butterfly modules.
-public class ButterflyViewController: UIViewController {
+open class ButterflyViewController: UIViewController {
     
     /// The image reported by users that will upload to server.
     internal var imageWillUpload: UIImage?
@@ -67,20 +67,20 @@ public class ButterflyViewController: UIViewController {
     
     var textViewIsShowing: Bool?
     
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        self.view.backgroundColor = UIColor.clearColor()
-        self.navigationController?.navigationBarHidden = true
+        self.view.backgroundColor = UIColor.clear
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     /// Set up the view
-    private func setup() {
+    fileprivate func setup() {
         
-        imageView = UIImageView(frame: UIScreen.mainScreen().bounds)
+        imageView = UIImageView(frame: UIScreen.main.bounds)
         imageView?.image = self.image
-        imageView?.autoresizingMask = UIViewAutoresizing([.FlexibleWidth, .FlexibleHeight])
-        imageView?.contentMode = UIViewContentMode.Center
+        imageView?.autoresizingMask = UIViewAutoresizing([.flexibleWidth, .flexibleHeight])
+        imageView?.contentMode = UIViewContentMode.center
         self.view.addSubview(imageView!)
         
         drawView = ButterflyDrawView()
@@ -93,24 +93,24 @@ public class ButterflyViewController: UIViewController {
         bottomBar = ButterflyBottomBar()
         self.view.addSubview(bottomBar!)
         
-        topBar?.sendButton?.addTarget(self, action: #selector(sendButtonPressed), forControlEvents: UIControlEvents.TouchUpInside)
-        topBar?.cancelButton?.addTarget(self, action: #selector(cancelButtonPressed), forControlEvents: UIControlEvents.TouchUpInside)
-        bottomBar?.colorChangedButton?.addTarget(self, action: #selector(colorChangedButtonPressed), forControlEvents: UIControlEvents.TouchUpInside)
-        bottomBar?.descriptionButton?.addTarget(self, action: #selector(inputDescriptionButtonPressed), forControlEvents: UIControlEvents.TouchUpInside)
-        bottomBar?.clearPathButton?.addTarget(self, action: #selector(clearButtonPressed), forControlEvents: UIControlEvents.TouchUpInside)
+        topBar?.sendButton?.addTarget(self, action: #selector(sendButtonPressed), for: UIControlEvents.touchUpInside)
+        topBar?.cancelButton?.addTarget(self, action: #selector(cancelButtonPressed), for: UIControlEvents.touchUpInside)
+        bottomBar?.colorChangedButton?.addTarget(self, action: #selector(colorChangedButtonPressed), for: UIControlEvents.touchUpInside)
+        bottomBar?.descriptionButton?.addTarget(self, action: #selector(inputDescriptionButtonPressed), for: UIControlEvents.touchUpInside)
+        bottomBar?.clearPathButton?.addTarget(self, action: #selector(clearButtonPressed), for: UIControlEvents.touchUpInside)
         
         textView.delegate = self
         view.addSubview(self.textView)
     }
 
-    public func cancelButtonPressed(sender: UIButton?) {
+    @objc open func cancelButtonPressed(_ sender: UIButton?) {
         drawView?.enable()
-        dismissViewControllerAnimated(false, completion: nil)
+        dismiss(animated: false, completion: nil)
     }
     
     /// Note: Always access or upload `imageWillUpload` and `textWillUpload` only after send button has been pressed, otherwise, these two optional properties may be nil.
     /// After that, you can upload image and text manually and properly.
-    public func sendButtonPressed(sender: UIButton?) {
+    @objc open func sendButtonPressed(_ sender: UIButton?) {
         drawView?.enable()
         delegate?.ButterflyViewControllerDidPressedSendButton(drawView)
         imageWillUpload = ButterflyManager.sharedManager.takeScreenshot()
@@ -122,31 +122,31 @@ public class ButterflyViewController: UIViewController {
             }
         }
         showAlertViewController()
-        print(self.imageWillUpload)
-        print(self.textWillUpload)
+        print(self.imageWillUpload!)
+        print(self.textWillUpload!)
     }
     
     func showAlertViewController() {
-        self.dismissViewControllerAnimated(false, completion: nil)
-        let alert = UIAlertController(title: "Success", message: "Report Success", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
-        self.presentingViewController?.presentViewController(alert, animated: true, completion: nil)
+        self.dismiss(animated: false, completion: nil)
+        let alert = UIAlertController(title: "Success", message: "Report Success", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
+        self.presentingViewController?.present(alert, animated: true, completion: nil)
     }
     
-    internal func colorChangedButtonPressed(sender: UIButton?) {
-        if drawView?.lineColor != UIColor.yellowColor() {
-            drawView?.lineColor = UIColor.yellowColor()
+    @objc internal func colorChangedButtonPressed(_ sender: UIButton?) {
+        if drawView?.lineColor != UIColor.yellow {
+            drawView?.lineColor = UIColor.yellow
         } else {
-            drawView?.lineColor = UIColor.redColor()
+            drawView?.lineColor = UIColor.red
         }
     }
     
-    internal func inputDescriptionButtonPressed(sender: UIButton?) {
+    @objc internal func inputDescriptionButtonPressed(_ sender: UIButton?) {
         textView.show()
         drawView?.disable()
     }
     
-    internal func clearButtonPressed(sender: UIButton?) {
+    @objc internal func clearButtonPressed(_ sender: UIButton?) {
         drawView?.clear()
     }
     
@@ -159,12 +159,12 @@ public class ButterflyViewController: UIViewController {
 
 extension ButterflyViewController: ButterflyDrawViewDelegate {
 
-    func drawViewDidEndDrawingInView(drawView: ButterflyDrawView?) {
+    func drawViewDidEndDrawingInView(_ drawView: ButterflyDrawView?) {
         topBar?.show()
         bottomBar?.show()
     }
     
-    func drawViewDidStartDrawingInView(drawView: ButterflyDrawView?) {
+    func drawViewDidStartDrawingInView(_ drawView: ButterflyDrawView?) {
         topBar?.hide()
         bottomBar?.hide()
     }
@@ -181,19 +181,19 @@ extension ButterflyViewController: UITextViewDelegate {
     /// http://stackoverflow.com/questions/1328638/placeholder-in-uitextview/7091503#7091503
     /// DO NOT OVERRIDE THESE METHODS BELOW EXCEPTED YOU NEED INDEED.
     ///
-    public func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+    public func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         if textView.tag == 0 {
             textView.text = "";
-            textView.textColor = UIColor.blackColor();
+            textView.textColor = UIColor.black;
             textView.tag = 1;
         }
         return true;
     }
     
-    public func textViewDidEndEditing(textView: UITextView) {
-        if textView.text.characters.count == 0 {
+    public func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.count == 0 {
             textView.text = "Please enter your feedback."
-            textView.textColor = UIColor.lightGrayColor()
+            textView.textColor = UIColor.lightGray
             textView.tag = 0
         }
         
@@ -202,7 +202,7 @@ extension ButterflyViewController: UITextViewDelegate {
         textWillUpload = textView.text
     }
     
-    public func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+    public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             textView.resignFirstResponder()
             return false

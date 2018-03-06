@@ -29,7 +29,7 @@ import UIKit
 private struct TextView {
     static let CornerRadius: CGFloat = 10
     static let WidthMargin: CGFloat = 10
-    static let Height = UIScreen.mainScreen().bounds.size.height / 5
+    static let Height = UIScreen.main.bounds.size.height / 5
 }
 
 internal class ButterflyTextView : UITextView {
@@ -40,7 +40,7 @@ internal class ButterflyTextView : UITextView {
         let frame = CGRect(
             x: TextView.WidthMargin,
             y: -TextView.Height,
-            width: UIScreen.mainScreen().bounds.size.width - 2 * TextView.WidthMargin,
+            width: UIScreen.main.bounds.size.width - 2 * TextView.WidthMargin,
             height: TextView.Height)
         super.init(frame: frame, textContainer: nil)
         layer.cornerRadius = TextView.CornerRadius
@@ -55,7 +55,7 @@ internal class ButterflyTextView : UITextView {
     func show() {
         if isShowing == false {
             isShowing = true
-            UIView.animateWithDuration(0.5,
+            UIView.animate(withDuration: 0.5,
                 delay: 0,
                 usingSpringWithDamping: 0.5,
                 initialSpringVelocity: 0.7,
@@ -75,7 +75,7 @@ internal class ButterflyTextView : UITextView {
     func hide() {
         if isShowing == true {
             isShowing = false
-            UIView.animateWithDuration(0.5,
+            UIView.animate(withDuration: 0.5,
                 delay: 0,
                 usingSpringWithDamping: 0.5,
                 initialSpringVelocity: 0.7,

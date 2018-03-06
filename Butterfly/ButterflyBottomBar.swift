@@ -27,7 +27,7 @@
 import UIKit
 
 private struct BottomBar {
-    static let Height: CGFloat = 44
+    static let Height: CGFloat = 44 * (UIScreen.main.bounds.height / 667.0)
     static let ButtonSize: CGFloat = 25
     static let ButtonMarginWidth: CGFloat = 10
     static let BackgroundColor: UIColor = UIColor(red: 46 / 255, green: 45 / 255, blue: 45 / 255, alpha: 1.0)
@@ -40,7 +40,7 @@ class ButterflyBottomBar: UIView {
     var clearPathButton: UIButton?
     
     convenience init() {
-        self.init(frame: CGRectMake(0, UIScreen.mainScreen().bounds.height - BottomBar.Height, UIScreen.mainScreen().bounds.width, BottomBar.Height))
+        self.init(frame: CGRect(x: 0, y: UIScreen.main.bounds.height - BottomBar.Height, width: UIScreen.main.bounds.width, height: BottomBar.Height))
     }
     
     override init(frame: CGRect) {
@@ -52,12 +52,12 @@ class ButterflyBottomBar: UIView {
         fatalError("init(coder:) has not been implemented\n")
     }
     
-    private func setup() {
+    fileprivate func setup() {
         self.backgroundColor = BottomBar.BackgroundColor
         
         let centerY: CGFloat = self.frame.size.height / 2 - BottomBar.ButtonSize / 2
         
-        let bundlePath = NSString(format: "%@/Frameworks/Butterfly.framework/Butterfly.bundle", NSBundle.mainBundle().bundlePath)
+        let bundlePath = NSString(format: "%@/Frameworks/Butterfly.framework/Butterfly.bundle", Bundle.main.bundlePath)
         let colorChangeButtonImgPath = NSString(format: "%@/analytics.png", bundlePath)
         let colorChangeButtonImg = UIImage(contentsOfFile: colorChangeButtonImgPath as String)
         let descriptionButtonImgPath = NSString(format: "%@/email-outline.png", bundlePath)
@@ -72,7 +72,7 @@ class ButterflyBottomBar: UIView {
             width: BottomBar.ButtonSize,
             height: BottomBar.ButtonSize)
         colorChangedButton?.frame = colorButtonRect
-        colorChangedButton?.setImage(colorChangeButtonImg, forState: UIControlState.Normal)
+        colorChangedButton?.setImage(colorChangeButtonImg, for: UIControlState())
         self.addSubview(colorChangedButton!)
         
         descriptionButton = UIButton()
@@ -82,7 +82,7 @@ class ButterflyBottomBar: UIView {
             width: BottomBar.ButtonSize,
             height: BottomBar.ButtonSize)
         descriptionButton?.frame = descriptionButtonRect
-        descriptionButton?.setImage(descriptionButtonImg, forState: UIControlState.Normal)
+        descriptionButton?.setImage(descriptionButtonImg, for: UIControlState())
         self.addSubview(descriptionButton!)
         
         clearPathButton = UIButton()
@@ -92,15 +92,15 @@ class ButterflyBottomBar: UIView {
             width: BottomBar.ButtonSize,
             height: BottomBar.ButtonSize)
         clearPathButton?.frame = clearPathButtonRect
-        clearPathButton?.setImage(clearButtonImg, forState: UIControlState.Normal)
+        clearPathButton?.setImage(clearButtonImg, for: UIControlState())
         self.addSubview(clearPathButton!)
     }
     
     func hide() {
-        self.hidden = true
+        self.isHidden = true
     }
     
     func show() {
-        self.hidden = false
+        self.isHidden = false
     }
 }
